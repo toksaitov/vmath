@@ -29,7 +29,8 @@ public class Vec2 {
     }
 
     public Vec2 norm() {
-        return null;
+        float mag = mag();
+        return new Vec2(x / mag, y / mag);
     }
 
     public Vec2 add(Vec2 other) {
