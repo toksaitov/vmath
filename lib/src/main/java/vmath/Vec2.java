@@ -42,7 +42,7 @@ public class Vec2 {
     }
 
     public Vec2 mul(float other) {
-        return null;
+        return new Vec2(x * other, y * other);
     }
 
     public float dot(Vec2 other) {
