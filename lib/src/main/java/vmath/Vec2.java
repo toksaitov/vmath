@@ -48,4 +48,9 @@ public class Vec2 {
     public float dot(Vec2 other) {
         return x * other.x + y * other.y;
     }
+
+    @Override
+    public String toString() {
+        return "(" + x + ", " + y + ")";
+    }
 }

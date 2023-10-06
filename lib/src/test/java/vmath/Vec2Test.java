@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class Vec2Test {
-
     @Test
     void givenNoArgs_whenVec2Created_thenVectorIsZero() {
         var v = new Vec2();
