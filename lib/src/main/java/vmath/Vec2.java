@@ -46,6 +46,6 @@ public class Vec2 {
     }
 
     public float dot(Vec2 other) {
-        return 0.0f;
+        return x * other.x + y * other.y;
     }
 }
