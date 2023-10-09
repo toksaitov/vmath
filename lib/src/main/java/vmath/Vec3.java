@@ -46,7 +46,7 @@ public class Vec3 {
     }
 
     public Vec3 mul(float scalar) {
-        return null;
+        return new Vec3(x * scalar, y * scalar, z * scalar);
     }
 
     public float dot(Vec3 other) {
