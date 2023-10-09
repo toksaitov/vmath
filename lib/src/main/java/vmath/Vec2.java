@@ -29,8 +29,8 @@ public class Vec2 {
     }
 
     public Vec2 norm() {
-        float mag = mag();
-        return new Vec2(x / mag, y / mag);
+        float norm = 1.0f / (float) Math.sqrt(x * x + y * y);
+        return new Vec2(x * norm, y * norm);
     }
 
     public Vec2 add(Vec2 other) {
