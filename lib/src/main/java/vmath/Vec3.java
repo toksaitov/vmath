@@ -50,7 +50,7 @@ public class Vec3 {
     }
 
     public float dot(Vec3 other) {
-        return 0.0f;
+        return x * other.x + y * other.y + z * other.z;
     }
 
     public Vec3 cross(Vec3 other) {
