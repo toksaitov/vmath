@@ -62,6 +62,6 @@ public class Vec3 {
     }
 
     public String toString() {
-        return "";
+        return "(" + x + ", " + y + ", " + z + ")";
     }
 }
