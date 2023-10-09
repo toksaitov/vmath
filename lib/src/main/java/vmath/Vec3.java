@@ -14,15 +14,15 @@ public class Vec3 {
     }
 
     public float x() {
-        return 0.0f;
+        return x;
     }
 
     public float y() {
-        return 0.0f;
+        return y;
     }
 
     public float z() {
-        return 0.0f;
+        return z;
     }
 
     public float mag() {
