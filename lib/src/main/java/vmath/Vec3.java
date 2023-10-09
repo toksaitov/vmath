@@ -33,7 +33,8 @@ public class Vec3 {
     }
 
     public Vec3 norm() {
-        return null;
+        float mag = mag();
+        return new Vec3(x / mag, y / mag, z / mag);
     }
 
     public Vec3 add(Vec3 other) {
