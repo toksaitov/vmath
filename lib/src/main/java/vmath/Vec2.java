@@ -1,8 +1,8 @@
 package vmath;
 
 public class Vec2 {
-    private float x;
-    private float y;
+    private final float x;
+    private final float y;
 
     public Vec2() {
         this(0.0f, 0.0f);
