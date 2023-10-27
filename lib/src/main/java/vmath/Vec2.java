@@ -1,8 +1,8 @@
 package vmath;
 
 public class Vec2 {
-    private float x;
-    private float y;
+    private final float x;
+    private final float y;
 
     public Vec2() {
         this(0.0f, 0.0f);
@@ -25,12 +25,12 @@ public class Vec2 {
     }
 
     public float mag() {
-        return (float) Math.sqrt(x * x + y * y);
+        return (float) Math.sqrt(x*x + y*y);
     }
 
     public Vec2 norm() {
-        float norm = 1.0f / (float) Math.sqrt(x * x + y * y);
-        return new Vec2(x * norm, y * norm);
+        float norm = 1.0f / (float) Math.sqrt(x*x + y*y);
+        return new Vec2(x*norm, y*norm);
     }
 
     public Vec2 add(Vec2 other) {
@@ -42,11 +42,11 @@ public class Vec2 {
     }
 
     public Vec2 mul(float other) {
-        return new Vec2(x * other, y * other);
+        return new Vec2(x*other, y*other);
     }
 
     public float dot(Vec2 other) {
-        return x * other.x + y * other.y;
+        return x*other.x + y*other.y;
     }
 
     @Override
