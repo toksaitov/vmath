@@ -11,8 +11,4 @@ public class Mat4 {
                 0.0f, 0.0f, 0.0f, 1.0f
         };
     }
-
-//    public float[] m() {
-//        return m;
-//    }
 }
