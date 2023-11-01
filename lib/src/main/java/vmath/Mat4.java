@@ -1,7 +1,7 @@
 package vmath;
 
 public class Mat4 {
-    final float[] m;
+    private final float[] m;
 
     public Mat4() {
         m = new float[] {
