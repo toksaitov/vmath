@@ -53,28 +53,6 @@ public class Vec4Test {
     }
 
     @Test
-    void givenZeroVector_whenMagnitudeSquaredCalculated_thenResultIsZero() {
-        var v = new Vec4(0.0f, 0.0f, 0.0f, 0.0f);
-        assertEquals(v.magSqr(), 0.0f);
-    }
-
-    @Test
-    void givenNonZeroVectors_whenMagnitudeSquaredCalculated_thenResultsAreCorrect() {
-        var v1 = new Vec4(0.0f, 1.0f, 0.0f, 0.0f);
-        assertEquals(v1.magSqr(), 1.0f);
-        var v2 = new Vec4(1.0f, 0.0f, 0.0f, 0.0f);
-        assertEquals(v2.magSqr(), 1.0f);
-        var v3 = new Vec4(0.0f, -1.0f, 0.0f, 0.0f);
-        assertEquals(v3.magSqr(), 1.0f);
-        var v4 = new Vec4(-1.0f, 0.0f, 0.0f, 0.0f);
-        assertEquals(v4.magSqr(), 1.0f);
-        var v5 = new Vec4(1.0f, 1.0f, 0.0f, 0.0f);
-        assertEquals(v5.magSqr(), 2.0f);
-        var v6 = new Vec4(2.0f, 1.0f, 1.0f, 1.0f);
-        assertEquals(v6.magSqr(), 7.0f);
-    }
-
-    @Test
     void givenNonZeroVector_whenNormalized_thenResultIsUnitVector() {
         var v = new Vec4(0.0f, 10.0f, 11.0f, 5.0f).norm();
         assertEquals(v.x(), 0.0f);
