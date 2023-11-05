@@ -10,4 +10,11 @@ public class Mat3 {
             0.0f, 1.0f, 0.0f,
             0.0f, 0.0f, 1.0f};
     }
+
+    public float get(int i, int j) {
+        if (i < 0 || i >= 3 || j >= 3 || j < 0) {
+            throw new IllegalArgumentException("Invalid indices");
+        }
+        return m[i * 3 + j];
+    }
 }
