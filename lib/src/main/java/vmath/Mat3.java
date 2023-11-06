@@ -13,7 +13,7 @@ public class Mat3 {
 
     public float get(int i, int j) {
         if (i < 0 || i >= 3 || j >= 3 || j < 0) {
-            throw new IllegalArgumentException("Invalid indices");
+            throw new IndexOutOfBoundsException("Invalid indices");
         }
         return m[i * 3 + j];
     }
