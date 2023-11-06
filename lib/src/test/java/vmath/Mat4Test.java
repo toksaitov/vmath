@@ -11,9 +11,15 @@ public class Mat4Test {
     void givenNoArgs_whenMatrix4Created_thenMatrixIsIdentity() {
         Mat4 m = new Mat4();
 
-        assertEquals(m.get(3,2), 0.0);
-        assertEquals(m.get(0,0), 1.0);
-        assertEquals(m.get(3,3), 1.0);
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (i == j) {
+                    assertEquals(m.get(i,j), 1.0);
+                } else {
+                    assertEquals(m.get(i,j), 0.0);
+                }
+            }
+        }
     }
 
     @Test
