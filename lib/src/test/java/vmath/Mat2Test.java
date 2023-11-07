@@ -26,9 +26,9 @@ public class Mat2Test {
     void givenInvalidIndices_whenGetCalled_thenThrowIndexOutOfBoundsException() {
         Mat2 matrix = new Mat2();
 
-        assertThrows(IndexOutOfBoundsException.class, () -> matrix.get(6, 1));
-        assertThrows(IndexOutOfBoundsException.class, () -> matrix.get(2, 1));
-        assertThrows(IndexOutOfBoundsException.class, () -> matrix.get(-1, 1));
-        assertThrows(IndexOutOfBoundsException.class, () -> matrix.get(-1, 13));
+        assertThrows(IndexOutOfBoundsException.class, () -> matrix.get(-1, 0));
+        assertThrows(IndexOutOfBoundsException.class, () -> matrix.get(3, 0));
+        assertThrows(IndexOutOfBoundsException.class, () -> matrix.get(0, -1));
+        assertThrows(IndexOutOfBoundsException.class, () -> matrix.get(0, 3));
     }
 }
