@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class Mat4Test {
 
     @Test
-    void givenNoArgs_whenMatrix4Created_thenMatrixIsIdentity() {
+    void givenNoArgs_whenMat4Created_thenMatrixIsIdentity() {
         Mat4 m = new Mat4();
 
         for (int i = 0; i < 4; i++) {
@@ -23,7 +23,12 @@ public class Mat4Test {
     }
 
     @Test
-    void givenMatrix4_whenGetElementAtInvalidIndices_thenThrowException() {
+    void givenIndices_whenGetCalled_thenReturnCorrectValue() {
+        //TODO
+    }
+
+    @Test
+    void givenInvalidIndices_whenGetCalled_thenThrowIndexOutOfBoundsException() {
         Mat4 m = new Mat4();
 
         assertThrows(IndexOutOfBoundsException.class, () -> m.get(-1, 0));
