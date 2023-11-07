@@ -23,7 +23,7 @@ public class Mat2Test {
     }
 
     @Test
-    void givenInvalidIndices_whenGetCalled_thenThrowIllegalArgumentException() {
+    void givenInvalidIndices_whenGetCalled_thenThrowIndexOutOfBoundsException() {
         Mat2 matrix = new Mat2();
 
         assertThrows(IndexOutOfBoundsException.class, () -> matrix.get(6, 1));
