@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class Mat2Test {
 
     @Test
-    public void givenNoArgs_whenMat2Created_thenMatrixIsIdentity() {
+    void givenNoArgs_whenMat2Created_thenMatrixIsIdentity() {
         Mat2 matrix = new Mat2();
 
         assertEquals(1.0f, matrix.get(0, 0));
