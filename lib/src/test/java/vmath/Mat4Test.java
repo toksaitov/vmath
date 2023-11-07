@@ -26,8 +26,9 @@ public class Mat4Test {
     void givenMatrix4_whenGetElementAtInvalidIndices_thenThrowException() {
         Mat4 m = new Mat4();
 
-        assertThrows(IndexOutOfBoundsException.class, () -> m.get(-1, 2));
-        assertThrows(IndexOutOfBoundsException.class, () -> m.get(1, 5));
-        assertThrows(IndexOutOfBoundsException.class, () -> m.get(4, 3));
+        assertThrows(IndexOutOfBoundsException.class, () -> m.get(-1, 0));
+        assertThrows(IndexOutOfBoundsException.class, () -> m.get(4, 0));
+        assertThrows(IndexOutOfBoundsException.class, () -> m.get(0, -1));
+        assertThrows(IndexOutOfBoundsException.class, () -> m.get(0, 4));
     }
 }
