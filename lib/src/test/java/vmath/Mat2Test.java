@@ -26,4 +26,19 @@ public class Mat2Test {
         assertEquals(0.0f, matrix.get(1, 0));
         assertEquals(1.0f, matrix.get(1, 1));
     }
+
+    @Test
+    void givenIndices_whenGetCalled_thenReturnValueMatches() {
+        //TODO
+    }
+
+    @Test
+    void givenInvalidIndices_whenGetCalled_thenThrowIllegalArgumentException() {
+        Mat2 matrix = new Mat2();
+
+        assertThrows(IndexOutOfBoundsException.class, () -> matrix.get(6, 1));
+        assertThrows(IndexOutOfBoundsException.class, () -> matrix.get(2, 1));
+        assertThrows(IndexOutOfBoundsException.class, () -> matrix.get(-1, 1));
+        assertThrows(IndexOutOfBoundsException.class, () -> matrix.get(-1, 13));
+    }
 }
