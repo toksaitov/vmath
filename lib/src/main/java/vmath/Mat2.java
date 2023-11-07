@@ -15,8 +15,6 @@ public class Mat2 {
             throw new IndexOutOfBoundsException("Invalid indices");
         }
 
-        int index = i * 2 + j;
-
-        return m[index];
+        return m[i * 2 + j];
     }
 }
