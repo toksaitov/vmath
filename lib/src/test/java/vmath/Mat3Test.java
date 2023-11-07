@@ -26,7 +26,7 @@ public class Mat3Test {
     }
 
     @Test
-    void givenInvalidIndices_whenGetCalled_thenThrowIllegalArgumentException() {
+    void givenInvalidIndices_whenGetCalled_thenThrowIndexOutOfBoundsException() {
         var m1 = new Mat3();
 
         assertThrows(IndexOutOfBoundsException.class, () -> m1.get(-1, 0));
