@@ -14,9 +14,9 @@ public class Mat4Test {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 if (i == j) {
-                    assertEquals(m.get(i,j), 1.0);
+                    assertEquals(m.get(i, j), 1.0f);
                 } else {
-                    assertEquals(m.get(i,j), 0.0);
+                    assertEquals(m.get(i, j), 0.0f);
                 }
             }
         }
