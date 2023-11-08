@@ -46,6 +46,26 @@ public class Vec2Test {
     }
 
     @Test
+    void givenZeroVector_whenSquaredMagnitudeCalculated_thenResultIsZero() {
+        var v = new Vec2(0.0f, 0.0f);
+        assertEquals(v.magSqr(), 0.0f);
+    }
+
+    @Test
+    void givenNonZeroVectors_whenSquaredMagnitudeCalculated_thenResultsAreCorrect() {
+        var v1 = new Vec2(0.0f, 1.0f);
+        assertEquals(v1.magSqr(), 1.0f);
+        var v2 = new Vec2(1.0f, 0.0f);
+        assertEquals(v2.magSqr(), 1.0f);
+        var v3 = new Vec2(0.0f, -1.0f);
+        assertEquals(v3.magSqr(), 1.0f);
+        var v4 = new Vec2(-1.0f, 0.0f);
+        assertEquals(v4.magSqr(), 1.0f);
+        var v5 = new Vec2(1.0f, 1.0f);
+        assertEquals(v5.magSqr(), 2.0);
+    }
+
+    @Test
     void givenNonZeroVector_whenNormalized_thenResultIsUnitVector() {
         var v = new Vec2(0.0f, 10.0f).norm();
         assertEquals(v.x(), 0.0f);
