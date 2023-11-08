@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class Mat2Test {
-    
+
     @Test
     void givenNoArgs_whenMat2Created_thenMatrixIsIdentity() {
         Mat2 matrix = new Mat2();
@@ -24,7 +24,10 @@ public class Mat2Test {
 
     @Test
     void givenArgs_whenMat2Created_thenMatrixHasGivenValues() {
-        float[] validValues = { 2.0f, 3.0f, 4.0f, 5.0f };
+        float[] validValues = {
+                2.0f, 3.0f,
+                4.0f, 5.0f
+        };
 
         Mat2 mat2 = new Mat2(validValues);
 
@@ -37,18 +40,24 @@ public class Mat2Test {
 
     @Test
     void givenWrongSize_whenMat2Created_thenThrowsException() {
+        float[] invalidSize = {
+                2.0f, 3.0f,
+                4.0f
+        };
 
-        float[] invalidSize= { 2.0f, 3.0f, 4.0f};
         assertThrows(IllegalArgumentException.class, () -> new Mat2(invalidSize));
     }
 
     @Test
     void givenNaNValues_whenMat2Created_thenThrowsException() {
-        
-        float[] invalidValues = {Float.NaN,Float.NaN,Float.NaN, Float.NaN };
-        assertThrows(ArithmeticException.class, () -> new Mat2(invalidValues));
+        float[] invalidValues = {
+                Float.NaN, Float.NaN,
+                Float.NaN, Float.NaN
+        };
+
+        assertThrows(IllegalArgumentException.class, () -> new Mat2(invalidValues));
     }
-    
+
     @Test
     void givenInvalidIndices_whenGetCalled_thenThrowIndexOutOfBoundsException() {
         Mat2 matrix = new Mat2();
