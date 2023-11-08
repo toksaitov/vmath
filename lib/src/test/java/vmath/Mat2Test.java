@@ -39,7 +39,7 @@ public class Mat2Test {
     }
 
     @Test
-    void givenWrongSize_whenMat2Created_thenThrowsException() {
+    void givenArrayOfInvalidLength_whenMat2Created_thenThrowsException() {
         float[] invalidSize = {
                 2.0f, 3.0f,
                 4.0f
