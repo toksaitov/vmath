@@ -14,6 +14,7 @@ public class Mat2 {
         if (initialValues.length != 4) {
             throw new IllegalArgumentException("Initial values array must have exactly 4 elements.");
         }
+
         for(int i = 0; i < 4; ++i)
         {
             if(Float.isNaN(initialValues[i]))
@@ -21,8 +22,11 @@ public class Mat2 {
                 throw new ArithmeticException();
             }
         }
+
         m = new float[4];
-        for (int i = 0; i < 4; ++i) {
+
+        for (int i = 0; i < 4; ++i) 
+        {
             m[i] = initialValues[i];
         }
     }
