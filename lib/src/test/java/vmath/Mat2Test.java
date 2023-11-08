@@ -37,12 +37,14 @@ public class Mat2Test {
 
     @Test
     void givenWrongSize_whenMat2Created_thenThrowsException() {
+
         float[] invalidSize= { 2.0f, 3.0f, 4.0f};
         assertThrows(IllegalArgumentException.class, () -> new Mat2(invalidSize));
     }
 
     @Test
     void givenNaNValues_whenMat2Created_thenThrowsException() {
+        
         float[] invalidValues = {Float.NaN,Float.NaN,Float.NaN, Float.NaN };
         assertThrows(ArithmeticException.class, () -> new Mat2(invalidValues));
     }
