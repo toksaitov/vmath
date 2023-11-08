@@ -50,12 +50,19 @@ public class Mat2Test {
 
     @Test
     void givenNaNValues_whenMat2Created_thenThrowsException() {
-        float[] invalidValues = {
+        float[] invalidValuesWithAllNaN = {
             Float.NaN, Float.NaN,
             Float.NaN, Float.NaN
         };
 
-        assertThrows(IllegalArgumentException.class, () -> new Mat2(invalidValues));
+        assertThrows(IllegalArgumentException.class, () -> new Mat2(invalidValuesWithAllNaN));
+
+        float[] invalidValuesWithOneNaN = {
+            1.0f, 2.0f,
+            Float.NaN, 3.0f
+        };
+
+        assertThrows(IllegalArgumentException.class, () -> new Mat2(invalidValuesWithOneNaN));
     }
 
     @Test
