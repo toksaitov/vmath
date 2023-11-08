@@ -24,16 +24,16 @@ public class Mat2Test {
 
     @Test
     void givenArgs_whenMat2Created_thenMatrixHasGivenValues() {
-        float[] validValues = {
-                2.0f, 3.0f,
-                4.0f, 5.0f
+        float[] m = {
+            2.0f, 3.0f,
+            4.0f, 5.0f
         };
 
-        Mat2 mat2 = new Mat2(validValues);
+        Mat2 mat2 = new Mat2(m);
 
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 2; j++) {
-                assertEquals(validValues[i * 2 + j], mat2.get(i, j));
+                assertEquals(m[i * 2 + j], mat2.get(i, j));
             }
         }
     }
@@ -41,8 +41,8 @@ public class Mat2Test {
     @Test
     void givenArrayOfInvalidLength_whenMat2Created_thenThrowsException() {
         float[] invalidSize = {
-                2.0f, 3.0f,
-                4.0f
+            2.0f, 3.0f,
+            4.0f
         };
 
         assertThrows(IllegalArgumentException.class, () -> new Mat2(invalidSize));
@@ -51,8 +51,8 @@ public class Mat2Test {
     @Test
     void givenNaNValues_whenMat2Created_thenThrowsException() {
         float[] invalidValues = {
-                Float.NaN, Float.NaN,
-                Float.NaN, Float.NaN
+            Float.NaN, Float.NaN,
+            Float.NaN, Float.NaN
         };
 
         assertThrows(IllegalArgumentException.class, () -> new Mat2(invalidValues));
