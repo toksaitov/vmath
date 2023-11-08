@@ -16,6 +16,13 @@ public class Mat4 {
         if (m.length != 16) {
             throw new IllegalArgumentException("Array length must be 16 for a 4x4 matrix.");
         }
+
+        for (float value : m) {
+            if (Float.isNaN(value)) {
+                throw new IllegalArgumentException("Array contains NaN values.");
+            }
+        }
+
         this.m = m.clone();
     }
 
