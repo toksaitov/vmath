@@ -139,6 +139,16 @@ class Vec3Test {
     }
 
     @Test
+    void givenThreevectors_whenTripleProdpctCalculated_thenResultIsCorrect(){
+	    var a = new Vec3(1.0f, 2.0f, 3.0f);
+	    var b = new Vec3(4.0f, 5.0f, 6.0f);
+	    var c = new Vec3(7.0f, 8.0f, 9.0f) ;
+
+	    float tripleProduct = a.triple(b, c) ;
+	    assertEquals (tripleProduct, 0.0f);
+    }
+
+    @Test
     void givenZeroVector_whenConvertedToString_thenResultIsZeroString() {
         var v1 = new Vec3();
         assertEquals(v1.toString(), "(0.0, 0.0, 0.0)");
