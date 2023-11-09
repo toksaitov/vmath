@@ -11,16 +11,16 @@ public class Mat3 {
             0.0f, 0.0f, 1.0f};
     }
 
-    public Mat3(float[] arr) {
-        if (arr == null || arr.length != 9) {
+    public Mat3(float[] m) {
+        if (m == null || m.length != 9) {
             throw new IllegalArgumentException();
         }
-        for (float val : arr) {
+        for (float val : m) {
             if (Float.isNaN(val)) {
                 throw new ArithmeticException();
             }
         }
-        m = arr.clone();
+        this.m = m.clone();
     }
 
     public float get(int i, int j) {
