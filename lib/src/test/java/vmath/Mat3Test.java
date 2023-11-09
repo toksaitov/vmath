@@ -21,8 +21,8 @@ public class Mat3Test {
     }
 
     @Test
-    void givenArrArg_whenMat3Created_thenMatrixHasGivenValues() {
-        var arr = new float[] {
+    void givenArrayArg_whenMat3Created_thenMatrixHasGivenValues() {
+        var arr = new float[]{
                 1.0f,  2.0f,  3.0f,
                 4.0f,  5.0f,  6.0f,
                 7.0f,  8.0f,  9.0f
@@ -43,7 +43,7 @@ public class Mat3Test {
     }
 
     @Test
-    void givenWrongArrSize_whenMat3Created_thenThrowsException() {
+    void givenArrayOfInvalidLength_whenMat3Created_thenThrowsException() {
         var arr = new float[]{
                 1.0f, 2.0f, 3.0f,
                 4.0f, 5.0f, 6.0f,
@@ -53,7 +53,7 @@ public class Mat3Test {
     }
 
     @Test
-    void givenNaNValuesInArr_whenMat3Created_thenThrowsException() {
+    void givenNaNValuesInArray_whenMat3Created_thenThrowsException() {
         for (int i = 0; i < 9; i++) {
             var arr = new float[9];
             arr[i] = Float.NaN;
@@ -62,7 +62,7 @@ public class Mat3Test {
     }
 
     @Test
-    void givenNullArr_whenMat3Created_thenThrowsException() {
+    void givenNullArray_whenMat3Created_thenThrowsException() {
         float[] arr = null;
         assertThrows(IllegalArgumentException.class, () -> new Mat3(arr));
     }
