@@ -11,7 +11,7 @@ public class Mat2 {
     }
 
     public Mat2(float[] m) {
-        if (m.length != 4) {
+        if (m == null || m.length != 4) {
             throw new IllegalArgumentException("Array length must be 4 for a 2x2 matrix.");
         }
 
