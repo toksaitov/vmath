@@ -66,6 +66,13 @@ public class Mat2Test {
     }
 
     @Test
+    void givenNullArray_whenMat3Created_thenThrowsException() {
+        float[] arr = null;
+
+        assertThrows(IllegalArgumentException.class, () -> new Mat2(arr));
+    }
+
+    @Test
     void givenInvalidIndices_whenGetCalled_thenThrowIndexOutOfBoundsException() {
         Mat2 matrix = new Mat2();
 
