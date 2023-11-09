@@ -18,6 +18,16 @@ public class Mat2Test {
     }
 
     @Test
+    void givenMatrix_whenGetCalledForIndices_thenValuesMatch() {
+    Mat2 matrix = new Mat2(1.0f, 2.0f, 3.0f, 4.0f);
+
+    assertEquals(1.0f, matrix.get(0, 0));
+    assertEquals(2.0f, matrix.get(0, 1));
+    assertEquals(3.0f, matrix.get(1, 0));
+    assertEquals(4.0f, matrix.get(1, 1));
+    }
+
+    @Test
     void givenIndices_whenGetCalled_thenReturnValueMatches() {
         //TODO
     }
