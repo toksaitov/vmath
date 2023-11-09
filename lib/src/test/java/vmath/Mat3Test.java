@@ -1,6 +1,7 @@
 package vmath;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
 
 public class Mat3Test {
@@ -22,10 +23,10 @@ public class Mat3Test {
 
     @Test
     void givenArrayArg_whenMat3Created_thenMatrixHasGivenValues() {
-        var arr = new float[]{
-                1.0f,  2.0f,  3.0f,
-                4.0f,  5.0f,  6.0f,
-                7.0f,  8.0f,  9.0f
+        var arr = new float[] {
+            1.0f, 2.0f, 3.0f,
+            4.0f, 5.0f, 6.0f,
+            7.0f, 8.0f, 9.0f
         };
         var m = new Mat3(arr);
 
@@ -44,23 +45,30 @@ public class Mat3Test {
 
     @Test
     void givenArrayOfInvalidLength_whenMat3Created_thenThrowsException() {
-        var arr = new float[]{
-                1.0f, 2.0f, 3.0f,
-                4.0f, 5.0f, 6.0f,
-                7.0f, 8.0f, 9.0f, 0.0f
+        var arr = new float[] {
+            1.0f, 2.0f, 3.0f,
+            4.0f, 5.0f, 6.0f,
+            7.0f, 8.0f, 9.0f, 0.0f
         };
-        
+
         assertThrows(IllegalArgumentException.class, () -> new Mat3(arr));
     }
 
     @Test
-    void givenNaNValuesInArray_whenMat3Created_thenThrowsException() {
-        for (int i = 0; i < 9; i++) {
-            var arr = new float[9];
-            arr[i] = Float.NaN;
+    void givenNaNValues_whenMat3Created_thenThrowsException() {
+        float[] arrOfNaNValues = {
+            Float.NaN, Float.NaN,
+            Float.NaN, Float.NaN
+        };
 
-            assertThrows(ArithmeticException.class, () -> new Mat3(arr));
-        }
+        assertThrows(IllegalArgumentException.class, () -> new Mat3(arrOfNaNValues));
+
+        float[] arrWithNaN = {
+            1.0f, 2.0f,
+            Float.NaN, 3.0f
+        };
+
+        assertThrows(IllegalArgumentException.class, () -> new Mat3(arrWithNaN));
     }
 
     @Test
