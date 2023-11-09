@@ -49,6 +49,7 @@ public class Mat3Test {
                 4.0f, 5.0f, 6.0f,
                 7.0f, 8.0f, 9.0f, 0.0f
         };
+        
         assertThrows(IllegalArgumentException.class, () -> new Mat3(arr));
     }
 
@@ -57,6 +58,7 @@ public class Mat3Test {
         for (int i = 0; i < 9; i++) {
             var arr = new float[9];
             arr[i] = Float.NaN;
+
             assertThrows(ArithmeticException.class, () -> new Mat3(arr));
         }
     }
@@ -64,6 +66,7 @@ public class Mat3Test {
     @Test
     void givenNullArray_whenMat3Created_thenThrowsException() {
         float[] arr = null;
+
         assertThrows(IllegalArgumentException.class, () -> new Mat3(arr));
     }
 
