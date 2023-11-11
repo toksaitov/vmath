@@ -61,9 +61,9 @@ public class Vec3 {
         );
     }
 
-    public float triple (Vec3 b, Vec3 c) {
-        Vec3 bCrossC = b. cross(c);
-        return this.dot (bCrossC);
+    public float triple(Vec3 b, Vec3 c) {
+        Vec3 bCrossC = b.cross(c);
+        return this.dot(bCrossC);
     }
 
     public String toString() {
