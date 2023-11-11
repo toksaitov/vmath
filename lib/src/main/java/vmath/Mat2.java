@@ -11,6 +11,11 @@ public class Mat2 {
     }
 
     public Mat2(float m00, float m01, float m10, float m11) {
+
+        if (Float.isNaN(m00) || Float.isNaN(m01) || Float.isNaN(m10) || Float.isNaN(m11)) {
+            throw new ArithmeticException();
+        }
+
         m = new float[] {
             m00, m01,
             m10, m11
