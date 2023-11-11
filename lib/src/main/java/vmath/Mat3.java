@@ -1,4 +1,3 @@
-
 package vmath;
 
 public class Mat3 {
@@ -8,15 +7,16 @@ public class Mat3 {
         m = new float[] {
             1.0f, 0.0f, 0.0f,
             0.0f, 1.0f, 0.0f,
-            0.0f, 0.0f, 1.0f};
+            0.0f, 0.0f, 1.0f
+        };
     }
 
     public Mat3(float[] m) {
         if (m == null || m.length != 9) {
             throw new IllegalArgumentException();
         }
-        for (float val : m) {
-            if (Float.isNaN(val)) {
+        for (float value : m) {
+            if (Float.isNaN(value)) {
                 throw new ArithmeticException();
             }
         }
@@ -25,7 +25,7 @@ public class Mat3 {
 
     public float get(int i, int j) {
         if (i < 0 || i >= 3 || j < 0 || j >= 3) {
-            throw new IndexOutOfBoundsException("Invalid indices");
+            throw new IndexOutOfBoundsException();
         }
         return m[i * 3 + j];
     }
