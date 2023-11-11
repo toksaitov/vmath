@@ -13,22 +13,20 @@ public class Mat4 {
     }
 
     public Mat4(float[] m) {
-        if (m.length != 16) {
-            throw new IllegalArgumentException("Array length must be 16 for a 4x4 matrix.");
+        if (m == null || m.length != 16) {
+            throw new IllegalArgumentException();
         }
-
         for (float value : m) {
             if (Float.isNaN(value)) {
-                throw new IllegalArgumentException("Array contains NaN values.");
+                throw new ArithmeticException();
             }
         }
-
         this.m = m.clone();
     }
 
     public float get(int i, int j) {
         if (i < 0 || i >= 4 || j < 0 || j >= 4) {
-            throw new IndexOutOfBoundsException("Invalid indices");
+            throw new IndexOutOfBoundsException();
         }
         return m[i * 4 + j];
     }
