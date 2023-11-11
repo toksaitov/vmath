@@ -34,12 +34,12 @@ public class Mat2Test {
 
     @Test
     void givenNaNValues_whenMat2Created_thenThrowsException() {
-        assertThrows(ArithmeticException.class.class, () -> new Mat2(
+        assertThrows(ArithmeticException.class, () -> new Mat2(
             Float.NaN, Float.NaN,
             Float.NaN, Float.NaN
         ));
 
-        assertThrows(ArithmeticException.class.class, () -> new Mat2(
+        assertThrows(ArithmeticException.class, () -> new Mat2(
             1.0f, 2.0f,
             3.0f, Float.NaN
         ));
