@@ -60,12 +60,12 @@ public class Mat2Test {
             Float.NaN, Float.NaN,
             Float.NaN, Float.NaN
         };
-        assertThrows(ArithmeticException.class.class, () -> new Mat2(a1));
+        assertThrows(ArithmeticException.class, () -> new Mat2(a1));
 
         float[] a2 = {
             1.0f, 2.0f,
             3.0f, Float.NaN
         };
-        assertThrows(ArithmeticException.class.class, () -> new Mat2(a2));
+        assertThrows(ArithmeticException.class, () -> new Mat2(a2));
     }
 }
