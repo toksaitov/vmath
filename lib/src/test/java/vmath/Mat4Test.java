@@ -36,4 +36,19 @@ public class Mat4Test {
         assertThrows(IndexOutOfBoundsException.class, () -> m.get(0, -1));
         assertThrows(IndexOutOfBoundsException.class, () -> m.get(0, 4));
     }
+
+    @Test
+    void givenTwoMatrices_whenMultiplied_thenResultIsCorrect() {
+        Mat4 m1 = new Mat4();
+        Mat4 m2 = new Mat4();
+
+        Mat4 expectedResult = new Mat4();
+        Mat4 actualResult = m1.mul(m2);
+
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                assertEquals(expectedResult.get(i, j), actualResult.get(i, j));
+            }
+        }
+    }
 }
