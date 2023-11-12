@@ -29,7 +29,7 @@ public class Vec2 {
     }
 
     public float magSqr() {
-        return (x*x + y*y);
+        return x*x + y*y;
     }
 
     public Vec2 norm() {
