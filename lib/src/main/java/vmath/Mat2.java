@@ -22,6 +22,18 @@ public class Mat2 {
         };
     }
 
+    public Mat2(float[] m) {
+        if (m == null || m.length != 4) {
+            throw new IllegalArgumentException();
+        }
+        for (float value : m) {
+            if (Float.isNaN(value)) {
+                throw new ArithmeticException();
+            }
+        }
+        this.m = m.clone();
+    }
+  
     public float get(int i, int j) {
         if (i < 0 || i >= 2 || j < 0 || j >= 2) {
             throw new IndexOutOfBoundsException();
