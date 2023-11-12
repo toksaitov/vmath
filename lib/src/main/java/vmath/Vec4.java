@@ -38,7 +38,7 @@ public class Vec4 {
     }
 
     public float magSqr() {
-        return (x*x + y*y + z*z + w*w);
+        return x*x + y*y + z*z + w*w;
     }
 
     public Vec4 norm() {
