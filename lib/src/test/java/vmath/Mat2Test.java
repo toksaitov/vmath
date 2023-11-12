@@ -17,6 +17,33 @@ public class Mat2Test {
         assertEquals(m.get(1, 0), 0.0f);
         assertEquals(m.get(1, 1), 1.0f);
     }
+  
+    @Test
+    void givenArgs_whenMat2Created_thenMatrixHasGivenValues() {
+        var m = new Mat2(
+            1.0f, 2.0f,
+            3.0f, 4.0f
+        );
+
+        assertEquals(m.get(0, 0), 1.0f);
+        assertEquals(m.get(0, 1), 2.0f);
+
+        assertEquals(m.get(1, 0), 3.0f);
+        assertEquals(m.get(1, 1), 4.0f);
+    }
+
+    @Test
+    void givenNaNValues_whenMat2Created_thenThrowsException() {
+        assertThrows(ArithmeticException.class, () -> new Mat2(
+            Float.NaN, Float.NaN,
+            Float.NaN, Float.NaN
+        ));
+
+        assertThrows(ArithmeticException.class, () -> new Mat2(
+            1.0f, 2.0f,
+            3.0f, Float.NaN
+        ));
+    }
 
     @Test
     void givenArrayArg_whenMat2Created_thenMatrixHasGivenValues() {
@@ -67,5 +94,30 @@ public class Mat2Test {
             3.0f, Float.NaN
         };
         assertThrows(ArithmeticException.class, () -> new Mat2(a2));
+    }
+
+    @Test
+    void givenIndices_whenGetCalled_thenReturnCorrectValue() {
+        var m = new Mat2(
+            1.0f, 2.0f,
+            3.0f, 4.0f
+        );
+
+        assertEquals(m.get(0, 0), 1.0f);
+        assertEquals(m.get(0, 1), 2.0f);
+
+        assertEquals(m.get(1, 0), 3.0f);
+        assertEquals(m.get(1, 1), 4.0f);
+    }
+
+    @Test
+    void givenInvalidIndices_whenGetIsCalled_thenThrowsException() {
+        var m = new Mat2();
+
+        assertThrows(IndexOutOfBoundsException.class, () -> m.get(-1, 0));
+        assertThrows(IndexOutOfBoundsException.class, () -> m.get(2, 0));
+
+        assertThrows(IndexOutOfBoundsException.class, () -> m.get(0, -1));
+        assertThrows(IndexOutOfBoundsException.class, () -> m.get(0, 2));
     }
 }
