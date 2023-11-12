@@ -40,19 +40,14 @@ public class Vec4Test {
     void givenNonZeroVectors_whenMagnitudeCalculated_thenResultsAreCorrect() {
         var v1 = new Vec4(0.0f, 1.0f, 0.0f, 0.0f);
         assertEquals(v1.mag(), 1.0f);
-
         var v2 = new Vec4(1.0f, 0.0f, 0.0f, 0.0f);
         assertEquals(v2.mag(), 1.0f);
-
         var v3 = new Vec4(0.0f, -1.0f, 0.0f, 0.0f);
         assertEquals(v3.mag(), 1.0f);
-
         var v4 = new Vec4(-1.0f, 0.0f, 0.0f, 0.0f);
         assertEquals(v4.mag(), 1.0f);
-
         var v5 = new Vec4(1.0f, 1.0f, 0.0f, 0.0f);
         assertEquals(v5.mag(), 1.4142135381698608f);
-
         var v6 = new Vec4(2.0f, 1.0f, 1.0f, 1.0f);
         assertEquals(v6.mag(), 2.6457513110645905f);
     }
