@@ -257,4 +257,39 @@ public class Mat4Test {
 
         assertThrows(IllegalArgumentException.class, () -> matrixA.mul(matrixB));
     }
+
+    @Test
+    void givenMatricesFromFloatArray_whenMultiplied_thenResultIsAsExpected() {
+        float[] valuesA = {
+            1.0f, 2.0f, 3.0f, 4.0f,
+            5.0f, 6.0f, 7.0f, 8.0f,
+            9.0f, 10.0f, 11.0f, 12.0f,
+            13.0f, 14.0f, 15.0f, 16.0f
+        };
+
+        float[] valuesB = {
+            2.0f, 0.0f, 0.0f, 0.0f,
+            0.0f, 2.0f, 0.0f, 0.0f,
+            0.0f, 0.0f, 2.0f, 0.0f,
+            0.0f, 0.0f, 0.0f, 2.0f
+        };
+
+        Mat4 matrixA = new Mat4(valuesA);
+        Mat4 matrixB = new Mat4(valuesB);
+
+        Mat4 expected = new Mat4(
+            2.0f, 4.0f, 6.0f, 8.0f,
+            10.0f, 12.0f, 14.0f, 16.0f,
+            18.0f, 20.0f, 22.0f, 24.0f,
+            26.0f, 28.0f, 30.0f, 32.0f
+        );
+
+        Mat4 result = matrixA.mul(matrixB);
+
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                assertEquals(expected.get(i, j), result.get(i, j));
+            }
+        }
+    }
 }
