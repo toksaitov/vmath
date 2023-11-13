@@ -53,11 +53,17 @@ public class Mat3Test {
 
     @Test
     public void givenNaNValues_whenConstructorCalled_thenThrowArithmeticException() {
-        assertThrows(ArithmeticException.class, () -> {
-            new Mat3(1.0f, 2.0f, Float.NaN,
-                    4.0f, 5.0f, 6.0f,
-                    7.0f, 8.0f, 9.0f);
-        });
+        assertThrows(ArithmeticException.class, () -> new Mat3(
+        1.0f, 2.0f, 3.0f,
+        4.0f, 5.0f, 6.0f,
+        7.0f, 8.0f, Float.NaN
+        ));
+
+        assertThrows(ArithmeticException.class, () -> new Mat3(
+            Float.NaN, Float.NaN, Float.NaN,
+            Float.NaN, Float.NaN, Float.NaN,
+            Float.NaN, Float.NaN, Float.NaN
+        ));
     }
 
     @Test
