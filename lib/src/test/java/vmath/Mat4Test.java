@@ -9,46 +9,308 @@ public class Mat4Test {
 
     @Test
     void givenNoArgs_whenMat4Created_thenMatrixIsIdentity() {
-        Mat4 m = new Mat4();
+        var m = new Mat4();
 
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
-                if (i == j) {
-                    assertEquals(m.get(i, j), 1.0f);
-                } else {
-                    assertEquals(m.get(i, j), 0.0f);
-                }
-            }
-        }
+        assertEquals(m.get(0, 0), 1.0f);
+        assertEquals(m.get(0, 1), 0.0f);
+        assertEquals(m.get(0, 2), 0.0f);
+        assertEquals(m.get(0, 3), 0.0f);
+
+        assertEquals(m.get(1, 0), 0.0f);
+        assertEquals(m.get(1, 1), 1.0f);
+        assertEquals(m.get(1, 2), 0.0f);
+        assertEquals(m.get(1, 3), 0.0f);
+
+        assertEquals(m.get(2, 0), 0.0f);
+        assertEquals(m.get(2, 1), 0.0f);
+        assertEquals(m.get(2, 2), 1.0f);
+        assertEquals(m.get(2, 3), 0.0f);
+
+        assertEquals(m.get(3, 0), 0.0f);
+        assertEquals(m.get(3, 1), 0.0f);
+        assertEquals(m.get(3, 2), 0.0f);
+        assertEquals(m.get(3, 3), 1.0f);
+    }
+
+    @Test
+    void givenArgs_whenMat4Created_thenMatrixHasGivenValues() {
+        var m = new Mat4(
+            1.0f, 2.0f, 3.0f, 4.0f,
+            5.0f, 6.0f, 7.0f, 8.0f,
+            9.0f, 10.0f, 11.0f, 12.0f,
+            13.0f, 14.0f, 15.0f, 16.0f
+        );
+
+        assertEquals(m.get(0, 0), 1.0f);
+        assertEquals(m.get(0, 1), 2.0f);
+        assertEquals(m.get(0, 2), 3.0f);
+        assertEquals(m.get(0, 3), 4.0f);
+
+        assertEquals(m.get(1, 0), 5.0f);
+        assertEquals(m.get(1, 1), 6.0f);
+        assertEquals(m.get(1, 2), 7.0f);
+        assertEquals(m.get(1, 3), 8.0f);
+
+        assertEquals(m.get(2, 0), 9.0f);
+        assertEquals(m.get(2, 1), 10.0f);
+        assertEquals(m.get(2, 2), 11.0f);
+        assertEquals(m.get(2, 3), 12.0f);
+
+        assertEquals(m.get(3, 0), 13.0f);
+        assertEquals(m.get(3, 1), 14.0f);
+        assertEquals(m.get(3, 2), 15.0f);
+        assertEquals(m.get(3, 3), 16.0f);
+    }
+
+    @Test
+    void givenNaNValues_whenMat4Created_thenThrowsException() {
+        assertThrows(ArithmeticException.class, () -> new Mat4(
+            Float.NaN, Float.NaN, Float.NaN, Float.NaN,
+            Float.NaN, Float.NaN, Float.NaN, Float.NaN,
+            Float.NaN, Float.NaN, Float.NaN, Float.NaN,
+            Float.NaN, Float.NaN, Float.NaN, Float.NaN
+        ));
+
+        assertThrows(ArithmeticException.class, () -> new Mat4(
+            1.0f, 2.0f, 3.0f, 4.0f,
+            5.0f, 6.0f, 7.0f, 8.0f,
+            9.0f, 10.0f, 11.0f, 12.0f,
+            13.0f, 14.0f, 15.0f, Float.NaN
+        ));
+    }
+
+    @Test
+    void givenArrayArg_whenMat4Created_thenMatrixHasGivenValues() {
+        var a = new float[] {
+            1.0f, 2.0f, 3.0f, 4.0f,
+            5.0f, 6.0f, 7.0f, 8.0f,
+            9.0f, 10.0f, 11.0f, 12.0f,
+            13.0f, 14.0f, 15.0f, 16.0f
+        };
+        var m = new Mat4(a);
+      
+        assertEquals(m.get(0, 0), 1.0f);
+        assertEquals(m.get(0, 1), 2.0f);
+        assertEquals(m.get(0, 2), 3.0f);
+        assertEquals(m.get(0, 3), 4.0f);
+
+        assertEquals(m.get(1, 0), 5.0f);
+        assertEquals(m.get(1, 1), 6.0f);
+        assertEquals(m.get(1, 2), 7.0f);
+        assertEquals(m.get(1, 3), 8.0f);
+
+        assertEquals(m.get(2, 0), 9.0f);
+        assertEquals(m.get(2, 1), 10.0f);
+        assertEquals(m.get(2, 2), 11.0f);
+        assertEquals(m.get(2, 3), 12.0f);
+
+        assertEquals(m.get(3, 0), 13.0f);
+        assertEquals(m.get(3, 1), 14.0f);
+        assertEquals(m.get(3, 2), 15.0f);
+        assertEquals(m.get(3, 3), 16.0f);
+    }
+
+    @Test
+    void givenNullArray_whenMat4Created_thenThrowsException() {
+        float[] a = null;
+        assertThrows(IllegalArgumentException.class, () -> new Mat4(a));
+    }
+
+    @Test
+    void givenArrayOfInvalidLength_whenMat4Created_thenThrowsException() {
+        var a1 = new float[] {
+            1.0f, 2.0f, 3.0f, 4.0f,
+            5.0f, 6.0f, 7.0f, 8.0f,
+            9.0f, 10.0f, 11.0f, 12.0f,
+            13.0f, 14.0f, 15.0f
+        };
+        assertThrows(IllegalArgumentException.class, () -> new Mat4(a1));
+
+        var a2 = new float[] {
+            1.0f, 2.0f, 3.0f, 4.0f,
+            5.0f, 6.0f, 7.0f, 8.0f,
+            9.0f, 10.0f, 11.0f, 12.0f,
+            13.0f, 14.0f, 15.0f, 16.0f, 17.0f
+        };
+        assertThrows(IllegalArgumentException.class, () -> new Mat4(a2));
+    }
+
+    @Test
+    void givenArrayWithNaNs_whenMat4Created_thenThrowsException() {
+        float[] a1 = {
+            Float.NaN, Float.NaN, Float.NaN, Float.NaN,
+            Float.NaN, Float.NaN, Float.NaN, Float.NaN,
+            Float.NaN, Float.NaN, Float.NaN, Float.NaN,
+            Float.NaN, Float.NaN, Float.NaN, Float.NaN
+        };
+        assertThrows(ArithmeticException.class, () -> new Mat4(a1));
+
+        float[] a2 = {
+            1.0f, 2.0f, 3.0f, 4.0f,
+            5.0f, 6.0f, 7.0f, 8.0f,
+            9.0f, 10.0f, 11.0f, 12.0f,
+            13.0f, 14.0f, 15.0f, Float.NaN
+        };
+        assertThrows(ArithmeticException.class, () -> new Mat4(a2));
     }
 
     @Test
     void givenIndices_whenGetCalled_thenReturnCorrectValue() {
-        //TODO
+        var m = new Mat4(
+            1.0f, 2.0f, 3.0f, 4.0f,
+            5.0f, 6.0f, 7.0f, 8.0f,
+            9.0f, 10.0f, 11.0f, 12.0f,
+            13.0f, 14.0f, 15.0f, 16.0f
+        );
+
+        assertEquals(m.get(0, 0), 1.0f);
+        assertEquals(m.get(0, 1), 2.0f);
+        assertEquals(m.get(0, 2), 3.0f);
+        assertEquals(m.get(0, 3), 4.0f);
+
+        assertEquals(m.get(1, 0), 5.0f);
+        assertEquals(m.get(1, 1), 6.0f);
+        assertEquals(m.get(1, 2), 7.0f);
+        assertEquals(m.get(1, 3), 8.0f);
+
+        assertEquals(m.get(2, 0), 9.0f);
+        assertEquals(m.get(2, 1), 10.0f);
+        assertEquals(m.get(2, 2), 11.0f);
+        assertEquals(m.get(2, 3), 12.0f);
+
+        assertEquals(m.get(3, 0), 13.0f);
+        assertEquals(m.get(3, 1), 14.0f);
+        assertEquals(m.get(3, 2), 15.0f);
+        assertEquals(m.get(3, 3), 16.0f);
     }
 
     @Test
-    void givenInvalidIndices_whenGetCalled_thenThrowIndexOutOfBoundsException() {
-        Mat4 m = new Mat4();
+    void givenInvalidIndices_whenGetIsCalled_thenThrowsException() {
+        var m = new Mat4();
 
         assertThrows(IndexOutOfBoundsException.class, () -> m.get(-1, 0));
         assertThrows(IndexOutOfBoundsException.class, () -> m.get(4, 0));
+
         assertThrows(IndexOutOfBoundsException.class, () -> m.get(0, -1));
         assertThrows(IndexOutOfBoundsException.class, () -> m.get(0, 4));
     }
 
     @Test
-    void givenTwoMatrices_whenMultiplied_thenResultIsCorrect() {
-        Mat4 m1 = new Mat4();
-        Mat4 m2 = new Mat4();
+    void givenIdentityMatrix_whenMultipliedWithAnyMatrix_thenResultIsTheSame() {
+        Mat4 identity = new Mat4(); 
+        Mat4 someMatrix = new Mat4(
+                1.0f, 2.0f, 3.0f, 4.0f,
+                5.0f, 6.0f, 7.0f, 8.0f,
+                9.0f, 10.0f, 11.0f, 12.0f,
+                13.0f, 14.0f, 15.0f, 16.0f
+        );
 
-        Mat4 expectedResult = new Mat4();
-        Mat4 actualResult = m1.mul(m2);
+        Mat4 result = identity.mul(someMatrix);
+        
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                assertEquals(result.get(i, j), someMatrix.get(i, j));
+            }
+        }
+    }
+
+    @Test
+    void givenTwoSpecificMatrices_whenMultiplied_thenResultIsAsExpected() {
+        Mat4 matrixA = new Mat4(
+                1.0f, 2.0f, 3.0f, 4.0f,
+                5.0f, 6.0f, 7.0f, 8.0f,
+                9.0f, 10.0f, 11.0f, 12.0f,
+                13.0f, 14.0f, 15.0f, 16.0f
+        );
+
+        Mat4 matrixB = new Mat4(
+                2.0f, 0.0f, 0.0f, 0.0f,
+                0.0f, 2.0f, 0.0f, 0.0f,
+                0.0f, 0.0f, 2.0f, 0.0f,
+                0.0f, 0.0f, 0.0f, 2.0f
+        );
+
+        Mat4 expected = new Mat4(
+                2.0f, 4.0f, 6.0f, 8.0f,
+                10.0f, 12.0f, 14.0f, 16.0f,
+                18.0f, 20.0f, 22.0f, 24.0f,
+                26.0f, 28.0f, 30.0f, 32.0f
+        );
+
+        Mat4 result = matrixA.mul(matrixB);
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                assertEquals(expected.get(i, j), result.get(i, j));
+            }
+        }
+    }
+
+    @Test
+    void givenDifferentSizedMatrices_whenMultiplied_thenThrowsException() {
+        Mat4 matrixA = new Mat4();
+        Mat4 matrixB = new Mat4(
+                1.0f, 2.0f, 3.0f, 4.0f, 
+                5.0f, 6.0f, 7.0f, 8.0f,
+                9.0f, 10.0f, 11.0f, 12.0f,
+                13.0f, 14.0f, 15.0f, 16.0f
+        );
+
+        assertThrows(IllegalArgumentException.class, () -> matrixA.mul(matrixB));
+    }
+
+    @Test
+    void givenMatricesFromFloatArray_whenMultiplied_thenResultIsAsExpected() {
+        float[] valuesA = {
+            1.0f, 2.0f, 3.0f, 4.0f,
+            5.0f, 6.0f, 7.0f, 8.0f,
+            9.0f, 10.0f, 11.0f, 12.0f,
+            13.0f, 14.0f, 15.0f, 16.0f
+        };
+
+        float[] valuesB = {
+            2.0f, 0.0f, 0.0f, 0.0f,
+            0.0f, 2.0f, 0.0f, 0.0f,
+            0.0f, 0.0f, 2.0f, 0.0f,
+            0.0f, 0.0f, 0.0f, 2.0f
+        };
+
+        Mat4 matrixA = new Mat4(valuesA);
+        Mat4 matrixB = new Mat4(valuesB);
+
+        Mat4 expected = new Mat4(
+            2.0f, 4.0f, 6.0f, 8.0f,
+            10.0f, 12.0f, 14.0f, 16.0f,
+            18.0f, 20.0f, 22.0f, 24.0f,
+            26.0f, 28.0f, 30.0f, 32.0f
+        );
+
+        Mat4 result = matrixA.mul(matrixB);
 
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                assertEquals(expectedResult.get(i, j), actualResult.get(i, j));
+                assertEquals(expected.get(i, j), result.get(i, j));
             }
         }
+    }
+
+    @Test
+    void givenMatricesFromFloatArray_whenDifferentSizedMatricesMultiplied_thenThrowException() {
+        float[] valuesA = {
+            1.0f, 2.0f, 3.0f, 4.0f,
+            5.0f, 6.0f, 7.0f, 8.0f,
+            9.0f, 10.0f, 11.0f, 12.0f,
+            13.0f, 14.0f, 15.0f, 16.0f
+        };
+
+        float[] valuesB = {
+            1.0f, 2.0f, 3.0f,
+            4.0f, 5.0f, 6.0f,
+            7.0f, 8.0f, 9.0f
+        };
+
+        Mat4 matrixA = new Mat4(valuesA);
+        Mat4 matrixB = new Mat4(valuesB);
+
+        assertThrows(IllegalArgumentException.class, () -> matrixA.mul(matrixB));
     }
 }

@@ -9,26 +9,115 @@ public class Mat2Test {
 
     @Test
     void givenNoArgs_whenMat2Created_thenMatrixIsIdentity() {
-        Mat2 matrix = new Mat2();
+        var m = new Mat2();
 
-        assertEquals(1.0f, matrix.get(0, 0));
-        assertEquals(0.0f, matrix.get(0, 1));
-        assertEquals(0.0f, matrix.get(1, 0));
-        assertEquals(1.0f, matrix.get(1, 1));
+        assertEquals(m.get(0, 0), 1.0f);
+        assertEquals(m.get(0, 1), 0.0f);
+
+        assertEquals(m.get(1, 0), 0.0f);
+        assertEquals(m.get(1, 1), 1.0f);
+    }
+  
+    @Test
+    void givenArgs_whenMat2Created_thenMatrixHasGivenValues() {
+        var m = new Mat2(
+            1.0f, 2.0f,
+            3.0f, 4.0f
+        );
+
+        assertEquals(m.get(0, 0), 1.0f);
+        assertEquals(m.get(0, 1), 2.0f);
+
+        assertEquals(m.get(1, 0), 3.0f);
+        assertEquals(m.get(1, 1), 4.0f);
     }
 
     @Test
-    void givenIndices_whenGetCalled_thenReturnValueMatches() {
-        //TODO
+    void givenNaNValues_whenMat2Created_thenThrowsException() {
+        assertThrows(ArithmeticException.class, () -> new Mat2(
+            Float.NaN, Float.NaN,
+            Float.NaN, Float.NaN
+        ));
+
+        assertThrows(ArithmeticException.class, () -> new Mat2(
+            1.0f, 2.0f,
+            3.0f, Float.NaN
+        ));
     }
 
     @Test
-    void givenInvalidIndices_whenGetCalled_thenThrowIndexOutOfBoundsException() {
-        Mat2 matrix = new Mat2();
+    void givenArrayArg_whenMat2Created_thenMatrixHasGivenValues() {
+        var a = new float[] {
+            1.0f, 2.0f,
+            3.0f, 4.0f
+        };
+        var m = new Mat2(a);
 
-        assertThrows(IndexOutOfBoundsException.class, () -> matrix.get(-1, 0));
-        assertThrows(IndexOutOfBoundsException.class, () -> matrix.get(3, 0));
-        assertThrows(IndexOutOfBoundsException.class, () -> matrix.get(0, -1));
-        assertThrows(IndexOutOfBoundsException.class, () -> matrix.get(0, 3));
+        assertEquals(m.get(0, 0), 1.0f);
+        assertEquals(m.get(0, 1), 2.0f);
+
+        assertEquals(m.get(1, 0), 3.0f);
+        assertEquals(m.get(1, 1), 4.0f);
+    }
+
+    @Test
+    void givenNullArray_whenMat2Created_thenThrowsException() {
+        float[] a = null;
+        assertThrows(IllegalArgumentException.class, () -> new Mat2(a));
+    }
+
+    @Test
+    void givenArrayOfInvalidLength_whenMat2Created_thenThrowsException() {
+        var a1 = new float[] {
+            1.0f, 2.0f,
+            3.0f
+        };
+        assertThrows(IllegalArgumentException.class, () -> new Mat2(a1));
+
+        var a2 = new float[] {
+            1.0f, 2.0f,
+            3.0f, 4.0f, 5.0f
+        };
+        assertThrows(IllegalArgumentException.class, () -> new Mat2(a2));
+    }
+
+    @Test
+    void givenArrayWithNaNs_whenMat2Created_thenThrowsException() {
+        float[] a1 = {
+            Float.NaN, Float.NaN,
+            Float.NaN, Float.NaN
+        };
+        assertThrows(ArithmeticException.class, () -> new Mat2(a1));
+
+        float[] a2 = {
+            1.0f, 2.0f,
+            3.0f, Float.NaN
+        };
+        assertThrows(ArithmeticException.class, () -> new Mat2(a2));
+    }
+
+    @Test
+    void givenIndices_whenGetCalled_thenReturnCorrectValue() {
+        var m = new Mat2(
+            1.0f, 2.0f,
+            3.0f, 4.0f
+        );
+
+        assertEquals(m.get(0, 0), 1.0f);
+        assertEquals(m.get(0, 1), 2.0f);
+
+        assertEquals(m.get(1, 0), 3.0f);
+        assertEquals(m.get(1, 1), 4.0f);
+    }
+
+    @Test
+    void givenInvalidIndices_whenGetIsCalled_thenThrowsException() {
+        var m = new Mat2();
+
+        assertThrows(IndexOutOfBoundsException.class, () -> m.get(-1, 0));
+        assertThrows(IndexOutOfBoundsException.class, () -> m.get(2, 0));
+
+        assertThrows(IndexOutOfBoundsException.class, () -> m.get(0, -1));
+        assertThrows(IndexOutOfBoundsException.class, () -> m.get(0, 2));
     }
 }
