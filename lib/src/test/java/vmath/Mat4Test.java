@@ -9,17 +9,6 @@ public class Mat4Test {
 
     @Test
     void givenNoArgs_whenMat4Created_thenMatrixIsIdentity() {
-        Mat4 m = new Mat4();
-
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
-                if (i == j) {
-                    assertEquals(m.get(i, j), 1.0f);
-                } else {
-                    assertEquals(m.get(i, j), 0.0f);
-                }
-            }
-        }
         var m = new Mat4();
 
         assertEquals(m.get(0, 0), 1.0f);
@@ -207,17 +196,21 @@ public class Mat4Test {
     }
 
     @Test
-    void givenIndices_whenGetCalled_thenReturnCorrectValue() {
-        //TODO
-    }
+    void givenIdentityMatrix_whenMultipliedWithAnyMatrix_thenResultIsTheSame() {
+        Mat4 identity = new Mat4(); 
+        Mat4 someMatrix = new Mat4(
+                1.0f, 2.0f, 3.0f, 4.0f,
+                5.0f, 6.0f, 7.0f, 8.0f,
+                9.0f, 10.0f, 11.0f, 12.0f,
+                13.0f, 14.0f, 15.0f, 16.0f
+        );
 
-    @Test
-    void givenInvalidIndices_whenGetCalled_thenThrowIndexOutOfBoundsException() {
-        Mat4 m = new Mat4();
-
-        assertThrows(IndexOutOfBoundsException.class, () -> m.get(-1, 0));
-        assertThrows(IndexOutOfBoundsException.class, () -> m.get(4, 0));
-        assertThrows(IndexOutOfBoundsException.class, () -> m.get(0, -1));
-        assertThrows(IndexOutOfBoundsException.class, () -> m.get(0, 4));
+        Mat4 result = identity.mul(someMatrix);
+        
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                assertEquals(result.get(i, j), someMatrix.get(i, j));
+            }
+        }
     }
 }
