@@ -62,19 +62,23 @@ public class Mat3Test {
 
     @Test
     public void givenValidValues_whenConstructorCalled_thenNoExceptionThrown() {
-        var m1 = new Mat3(1.0f, 2.0f, 3.0f,
-                4.0f, 5.0f, 6.0f,
-                7.0f, 8.0f, 9.0f);
+        var a = new Mat3(
+        1.0f, 2.0f, 3.0f,
+        4.0f, 5.0f, 6.0f,
+        7.0f, 8.0f, 9.0f
+        );
 
-        assertEquals(1.0f, m1.get(0, 0));
-        assertEquals(2.0f, m1.get(0, 1));
-        assertEquals(3.0f, m1.get(0, 2));
-        assertEquals(4.0f, m1.get(1, 0));
-        assertEquals(5.0f, m1.get(1, 1));
-        assertEquals(6.0f, m1.get(1, 2));
-        assertEquals(7.0f, m1.get(2, 0));
-        assertEquals(8.0f, m1.get(2, 1));
-        assertEquals(9.0f, m1.get(2, 2));
+        assertEquals(1.0f, a.get(0, 0));
+        assertEquals(2.0f, a.get(0, 1));
+        assertEquals(3.0f, a.get(0, 2));
+
+        assertEquals(4.0f, a.get(1, 0));
+        assertEquals(5.0f, a.get(1, 1));
+        assertEquals(6.0f, a.get(1, 2));
+
+        assertEquals(7.0f, a.get(2, 0));
+        assertEquals(8.0f, a.get(2, 1));
+        assertEquals(9.0f, a.get(2, 2));
     }
 
     @Test
