@@ -54,9 +54,9 @@ public class Mat3Test {
     @Test
     public void givenNaNValues_whenConstructorCalled_thenThrowArithmeticException() {
         assertThrows(ArithmeticException.class, () -> new Mat3(
-        1.0f, 2.0f, 3.0f,
-        4.0f, 5.0f, 6.0f,
-        7.0f, 8.0f, Float.NaN
+            1.0f, 2.0f, 3.0f,
+            4.0f, 5.0f, 6.0f,
+            7.0f, 8.0f, Float.NaN
         ));
 
         assertThrows(ArithmeticException.class, () -> new Mat3(
@@ -69,9 +69,9 @@ public class Mat3Test {
     @Test
     public void givenValidValues_whenConstructorCalled_thenNoExceptionThrown() {
         var a = new Mat3(
-        1.0f, 2.0f, 3.0f,
-        4.0f, 5.0f, 6.0f,
-        7.0f, 8.0f, 9.0f
+            1.0f, 2.0f, 3.0f,
+            4.0f, 5.0f, 6.0f,
+            7.0f, 8.0f, 9.0f
         );
 
         assertEquals(1.0f, a.get(0, 0));
