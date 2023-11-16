@@ -66,9 +66,9 @@ public class Vec3 {
     }
 
     public Vec3 lerp(Vec3 end, float t) {
-        float newX = (1 - t) * x + t * end.x;
-        float newY = (1 - t) * y + t * end.y;
-        float newZ = (1 - t) * z + t * end.z;
+        float newX = (1 - t)*x + t*end.x;
+        float newY = (1 - t)*y + t*end.y;
+        float newZ = (1 - t)*z + t*end.z;
         return new Vec3(newX, newY, newZ);
     }
 
