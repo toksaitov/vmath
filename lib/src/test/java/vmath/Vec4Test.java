@@ -137,6 +137,20 @@ public class Vec4Test {
     }
 
     @Test
+    void givenTwoVectors_whenLerpCalculated_thenResultIsCorrect() {
+        var v1 = new Vec4(1.0f, 2.0f, 3.0f, 4.0f);
+        var v2 = new Vec4(2.0f, 3.0f, 1.0f, 2.0f);
+        float t = 0.5f;
+
+        Vec4 result = v1.lerp(v2, t);
+
+        assertEquals(result.x(), 1.5f);
+        assertEquals(result.y(), 2.5f);
+        assertEquals(result.z(), 2.0f);
+        assertEquals(result.w(), 3.0f);
+    }
+
+    @Test
     void givenZeroVector_whenConvertedToString_thenResultIsZeroString() {
         var v1 = new Vec4();
         assertEquals(v1.toString(), "(0.0, 0.0, 0.0, 0.0)");
