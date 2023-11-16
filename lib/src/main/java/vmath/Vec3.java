@@ -29,12 +29,12 @@ public class Vec3 {
     }
 
     public float mag() {
-        return (float) Math.sqrt(x*x + y*y + z*z);
+        return (float) Math.sqrt(x * x + y * y + z * z);
     }
 
     public Vec3 norm() {
-        float norm = 1.0f / (float) Math.sqrt(x*x + y*y + z*z);
-        return new Vec3(x*norm, y*norm, z*norm);
+        float norm = 1.0f / (float) Math.sqrt(x * x + y * y + z * z);
+        return new Vec3(x * norm, y * norm, z * norm);
     }
 
     public Vec3 add(Vec3 other) {
@@ -46,24 +46,30 @@ public class Vec3 {
     }
 
     public Vec3 mul(float scalar) {
-        return new Vec3(x*scalar, y*scalar, z*scalar);
+        return new Vec3(x * scalar, y * scalar, z * scalar);
     }
 
     public float dot(Vec3 other) {
-        return x*other.x + y*other.y + z*other.z;
+        return x * other.x + y * other.y + z * other.z;
     }
 
     public Vec3 cross(Vec3 other) {
         return new Vec3(
-            y*other.z() - z*other.y(),
-            z*other.x() - x*other.z(),
-            x*other.y() - y*other.x()
-        );
+                y * other.z() - z * other.y(),
+                z * other.x() - x * other.z(),
+                x * other.y() - y * other.x());
     }
 
     public float triple(Vec3 b, Vec3 c) {
         Vec3 bCrossC = b.cross(c);
         return this.dot(bCrossC);
+    }
+
+    public Vec3 lerp(Vec3 end, float t) {
+        float newX = (1 - t) * x + t * end.x;
+        float newY = (1 - t) * y + t * end.y;
+        float newZ = (1 - t) * z + t * end.z;
+        return new Vec3(newX, newY, newZ);
     }
 
     public String toString() {
