@@ -194,4 +194,16 @@ public class Mat4Test {
         assertThrows(IndexOutOfBoundsException.class, () -> m.get(0, -1));
         assertThrows(IndexOutOfBoundsException.class, () -> m.get(0, 4));
     }
+
+    @Test
+    void givenNoArgsMatrix_whenConvertedToString_thenResultIsIdentityMatrix() {
+        var m = new Mat4();
+        assertEquals(m.toString(), "(1.0, 0.0, 0.0, 0.0)\n(0.0, 1.0, 0.0, 0.0)\n(0.0, 0.0, 1.0, 0.0)\n(0.0, 0.0, 0.0, 1.0)");
+    }
+
+    @Test
+    void givenIntParameters_whenConvertedToString_thenResultIsFloatString() {
+        var m = new Mat4(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
+        assertEquals(m.toString(), "(1.0, 2.0, 3.0, 4.0)\n(5.0, 6.0, 7.0, 8.0)\n(9.0, 10.0, 11.0, 12.0)\n(13.0, 14.0, 15.0, 16.0)");
+    }
 }
