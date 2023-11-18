@@ -24,10 +24,10 @@ public class Mat2 {
 
     public Mat2 mul(Mat2 other){
         float m00, m01, m10, m11;
-        m00 = (m[0]*other.m[0]) + (m[1]*other.m[2]);
-        m01 = (m[0]*other.m[1]) + (m[1]*other.m[3]);
-        m10 = (m[2]*other.m[0]) + (m[3]*other.m[2]);
-        m11 = (m[2]*other.m[1]) + (m[3]*other.m[3]);
+        m00 = m[0]*other.m[0] + m[1]*other.m[2];
+        m01 = m[0]*other.m[1] + m[1]*other.m[3];
+        m10 = m[2]*other.m[0] + m[3]*other.m[2];
+        m11 = m[2]*other.m[1] + m[3]*other.m[3];
         return new Mat2(m00, m01, m10, m11);
     }
 
