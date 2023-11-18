@@ -34,12 +34,12 @@ public class Vec4 {
     }
 
     public float mag() {
-        return (float) Math.sqrt(x * x + y * y + z * z + w * w);
+        return (float) Math.sqrt(x*x + y*y + z*z + w*w);
     }
 
     public Vec4 norm() {
-        float norm = 1.0f / (float) Math.sqrt(x * x + y * y + z * z + w * w);
-        return new Vec4(x * norm, y * norm, z * norm, w * norm);
+        float norm = 1.0f / (float) Math.sqrt(x*x + y*y + z*z + w*w);
+        return new Vec4(x*norm, y*norm, z*norm, w*norm);
     }
 
     public Vec4 add(Vec4 other) {
@@ -51,11 +51,11 @@ public class Vec4 {
     }
 
     public Vec4 mul(float scalar) {
-        return new Vec4(x * scalar, y * scalar, z * scalar, w * scalar);
+        return new Vec4(x*scalar, y*scalar, z*scalar, w*scalar);
     }
 
     public float dot(Vec4 other) {
-        return x * other.x + y * other.y + z * other.z + w * other.w;
+        return x*other.x + y*other.y + z*other.z + w*other.w;
     }
 
     public Vec4 lerp(Vec4 other, float t) {
