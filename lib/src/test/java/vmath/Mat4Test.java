@@ -199,10 +199,10 @@ public class Mat4Test {
     void givenIdentityMatrix_whenMultipliedWithAnyMatrix_thenResultIsTheSame() {
         Mat4 identity = new Mat4(); 
         Mat4 someMatrix = new Mat4(
-                1.0f, 2.0f, 3.0f, 4.0f,
-                5.0f, 6.0f, 7.0f, 8.0f,
-                9.0f, 10.0f, 11.0f, 12.0f,
-                13.0f, 14.0f, 15.0f, 16.0f
+            1.0f, 2.0f, 3.0f, 4.0f,
+            5.0f, 6.0f, 7.0f, 8.0f,
+            9.0f, 10.0f, 11.0f, 12.0f,
+            13.0f, 14.0f, 15.0f, 16.0f
         );
 
         Mat4 result = identity.mul(someMatrix);
@@ -217,24 +217,24 @@ public class Mat4Test {
     @Test
     void givenTwoSpecificMatrices_whenMultiplied_thenResultIsAsExpected() {
         Mat4 matrixA = new Mat4(
-                1.0f, 2.0f, 3.0f, 4.0f,
-                5.0f, 6.0f, 7.0f, 8.0f,
-                9.0f, 10.0f, 11.0f, 12.0f,
-                13.0f, 14.0f, 15.0f, 16.0f
+            1.0f, 2.0f, 3.0f, 4.0f,
+            5.0f, 6.0f, 7.0f, 8.0f,
+            9.0f, 10.0f, 11.0f, 12.0f,
+            13.0f, 14.0f, 15.0f, 16.0f
         );
 
         Mat4 matrixB = new Mat4(
-                2.0f, 0.0f, 0.0f, 0.0f,
-                0.0f, 2.0f, 0.0f, 0.0f,
-                0.0f, 0.0f, 2.0f, 0.0f,
-                0.0f, 0.0f, 0.0f, 2.0f
+            2.0f, 0.0f, 0.0f, 0.0f,
+            0.0f, 2.0f, 0.0f, 0.0f,
+            0.0f, 0.0f, 2.0f, 0.0f,
+            0.0f, 0.0f, 0.0f, 2.0f
         );
 
         Mat4 expected = new Mat4(
-                2.0f, 4.0f, 6.0f, 8.0f,
-                10.0f, 12.0f, 14.0f, 16.0f,
-                18.0f, 20.0f, 22.0f, 24.0f,
-                26.0f, 28.0f, 30.0f, 32.0f
+            2.0f, 4.0f, 6.0f, 8.0f,
+            10.0f, 12.0f, 14.0f, 16.0f,
+            18.0f, 20.0f, 22.0f, 24.0f,
+            26.0f, 28.0f, 30.0f, 32.0f
         );
 
         Mat4 result = matrixA.mul(matrixB);
