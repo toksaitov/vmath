@@ -66,7 +66,7 @@ public class Vec3 {
      * @return The magnitude of the vector.
      */
     public float mag() {
-        return (float) Math.sqrt(x * x + y * y + z * z);
+        return (float) Math.sqrt(x*x + y*y + z*z);
     }
 
     /**
