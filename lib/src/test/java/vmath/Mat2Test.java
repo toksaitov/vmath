@@ -120,4 +120,15 @@ public class Mat2Test {
         assertThrows(IndexOutOfBoundsException.class, () -> m.get(0, -1));
         assertThrows(IndexOutOfBoundsException.class, () -> m.get(0, 2));
     }
+
+    @Test
+    void givenVec2_whenMultiplied_thenResultIsCorrect() {
+        Mat2 m = new Mat2(1.0f, 2.0f, 3.0f, 4.0f);
+        Vec2 v = new Vec2(5.0f, 6.0f);
+
+        Vec2 r = m.mul(v);
+
+        assertEquals(17.0f, r.x());
+        assertEquals(39.0f, r.y());
+    }
 }
