@@ -44,7 +44,7 @@ public class Mat4 {
 
     public float get(int i, int j) {
         if (i < 0 || i >= 4 || j < 0 || j >= 4) {
-            throw new IndexOutOfBoundsException("Invalid indices");
+            throw new IndexOutOfBoundsException();
         }
         return m[i * 4 + j];
     } 
