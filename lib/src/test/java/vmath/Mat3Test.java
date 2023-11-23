@@ -120,4 +120,45 @@ public class Mat3Test {
         };
         assertThrows(ArithmeticException.class, () -> new Mat3(a2));
     }
+
+    @Test
+    void givenNoArgs_whenMat3Created_thenMatrixIsTransposed() {
+        var m = new Mat3();
+        m.transp();
+
+        assertEquals(m.get(0, 0), 1.0f);
+        assertEquals(m.get(0, 1), 0.0f);
+        assertEquals(m.get(0, 2), 0.0f);
+
+        assertEquals(m.get(1, 0), 0.0f);
+        assertEquals(m.get(1, 1), 1.0f);
+        assertEquals(m.get(1, 2), 0.0f);
+
+        assertEquals(m.get(2, 0), 0.0f);
+        assertEquals(m.get(2, 1), 0.0f);
+        assertEquals(m.get(2, 2), 1.0f);
+    }
+
+    @Test
+    void givenArrayArg_whenMat3Created_thenMatrixIsTransposed() {
+        var a = new float[] {
+                1.0f, 2.0f, 3.0f,
+                4.0f, 5.0f, 6.0f,
+                7.0f, 8.0f, 9.0f
+        };
+        var m = new Mat3(a);
+        m.transp();
+
+        assertEquals(m.get(0, 0), 1.0f);
+        assertEquals(m.get(0, 1), 4.0f);
+        assertEquals(m.get(0, 2), 7.0f);
+
+        assertEquals(m.get(1, 0), 2.0f);
+        assertEquals(m.get(1, 1), 5.0f);
+        assertEquals(m.get(1, 2), 8.0f);
+
+        assertEquals(m.get(2, 0), 3.0f);
+        assertEquals(m.get(2, 1), 6.0f);
+        assertEquals(m.get(2, 2), 9.0f);
+    }
 }
