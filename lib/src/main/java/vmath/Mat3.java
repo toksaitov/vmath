@@ -44,4 +44,16 @@ public class Mat3 {
         }
         return m[i * 3 + j];
     }
+
+    public void transp() {
+        float[] result = new float[9];
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                result[i * 3 + j] = m[j * 3 + i];
+            }
+        }
+
+        System.arraycopy(result, 0, m, 0, 9);
+    }
 }
