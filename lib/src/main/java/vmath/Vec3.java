@@ -55,9 +55,10 @@ public class Vec3 {
 
     public Vec3 cross(Vec3 other) {
         return new Vec3(
-		y*other.z() - z*other.y(),
-		z*other.x() - x*other.z(),
-		x*other.y() - y*other.x());
+            y*other.z() - z*other.y(),
+	     z*other.x() - x*other.z(),
+	     x*other.y() - y*other.x()
+        );
     }
 
     public float triple(Vec3 b, Vec3 c) {
@@ -65,10 +66,10 @@ public class Vec3 {
         return this.dot(bCrossC);
     }
 
-    public Vec3 lerp(Vec3 end, float t) {
-        float newX = (1 - t)*x + t*end.x;
-        float newY = (1 - t)*y + t*end.y;
-        float newZ = (1 - t)*z + t*end.z;
+    public Vec3 lerp(Vec3 other, float t) {
+        float newX = (1 - t)*x + t*other.x;
+        float newY = (1 - t)*y + t*other.y;
+        float newZ = (1 - t)*z + t*other.z;
         return new Vec3(newX, newY, newZ);
     }
 
