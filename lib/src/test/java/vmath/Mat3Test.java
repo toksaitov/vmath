@@ -120,6 +120,7 @@ public class Mat3Test {
         };
         assertThrows(ArithmeticException.class, () -> new Mat3(a2));
     }
+
     @Test
     void givenVec3_whenMultiplied_thenResultIsCorrect() {
         Mat3 m = new Mat3(
