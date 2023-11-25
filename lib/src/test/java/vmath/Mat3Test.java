@@ -120,4 +120,19 @@ public class Mat3Test {
         };
         assertThrows(ArithmeticException.class, () -> new Mat3(a2));
     }
+    @Test
+    void givenVec3_whenMultiplied_thenResultIsCorrect() {
+        Mat3 m = new Mat3(
+                1.0f, 2.0f, 3.0f,
+                4.0f, 5.0f, 6.0f,
+                7.0f, 8.0f, 9.0f
+        );
+        Vec3 v = new Vec3(5.0f, 6.0f, 7.0f);
+
+        Vec3 r = m.mul(v);
+
+        assertEquals(38.0f, r.x());
+        assertEquals(92.0f, r.y());
+        assertEquals(146.0f, r.z());
+    }
 }
