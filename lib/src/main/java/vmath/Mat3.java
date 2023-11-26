@@ -1,7 +1,5 @@
 package vmath;
 
-import org.jetbrains.annotations.NotNull;
-
 public class Mat3 {
     private final float[] m;
 
