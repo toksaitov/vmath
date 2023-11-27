@@ -207,11 +207,25 @@ public class Mat4Test {
 
         Mat4 result = identity.mul(someMatrix);
         
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
-                assertEquals(result.get(i, j), someMatrix.get(i, j));
-            }
-        }
+        assertEquals(1.0f, result.get(0, 0));
+        assertEquals(2.0f, result.get(0, 1));
+        assertEquals(3.0f, result.get(0, 2));
+        assertEquals(4.0f, result.get(0, 3));
+
+        assertEquals(5.0f, result.get(1, 0));
+        assertEquals(6.0f, result.get(1, 1));
+        assertEquals(7.0f, result.get(1, 2));
+        assertEquals(8.0f, result.get(1, 3));
+
+        assertEquals(9.0f, result.get(2, 0));
+        assertEquals(10.0f, result.get(2, 1));
+        assertEquals(11.0f, result.get(2, 2));
+        assertEquals(12.0f, result.get(2, 3));
+
+        assertEquals(13.0f, result.get(3, 0));
+        assertEquals(14.0f, result.get(3, 1));
+        assertEquals(15.0f, result.get(3, 2));
+        assertEquals(16.0f, result.get(3, 3));
     }
 
     @Test
@@ -238,11 +252,26 @@ public class Mat4Test {
         );
 
         Mat4 result = matrixA.mul(matrixB);
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
-                assertEquals(expected.get(i, j), result.get(i, j));
-            }
-        }
+
+        assertEquals(expected.get(0, 0), result.get(0, 0));
+        assertEquals(expected.get(0, 1), result.get(0, 1));
+        assertEquals(expected.get(0, 2), result.get(0, 2));
+        assertEquals(expected.get(0, 3), result.get(0, 3));
+
+        assertEquals(expected.get(1, 0), result.get(1, 0));
+        assertEquals(expected.get(1, 1), result.get(1, 1));
+        assertEquals(expected.get(1, 2), result.get(1, 2));
+        assertEquals(expected.get(1, 3), result.get(1, 3));
+
+        assertEquals(expected.get(2, 0), result.get(2, 0));
+        assertEquals(expected.get(2, 1), result.get(2, 1));
+        assertEquals(expected.get(2, 2), result.get(2, 2));
+        assertEquals(expected.get(2, 3), result.get(2, 3));
+
+        assertEquals(expected.get(3, 0), result.get(3, 0));
+        assertEquals(expected.get(3, 1), result.get(3, 1));
+        assertEquals(expected.get(3, 2), result.get(3, 2));
+        assertEquals(expected.get(3, 3), result.get(3, 3));
     }
 
     @Test
@@ -273,10 +302,24 @@ public class Mat4Test {
 
         Mat4 result = matrixA.mul(matrixB);
 
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
-                assertEquals(expected.get(i, j), result.get(i, j));
-            }
-        }
+        assertEquals(expected.get(0, 0), result.get(0, 0));
+        assertEquals(expected.get(0, 1), result.get(0, 1));
+        assertEquals(expected.get(0, 2), result.get(0, 2));
+        assertEquals(expected.get(0, 3), result.get(0, 3));
+
+        assertEquals(expected.get(1, 0), result.get(1, 0));
+        assertEquals(expected.get(1, 1), result.get(1, 1));
+        assertEquals(expected.get(1, 2), result.get(1, 2));
+        assertEquals(expected.get(1, 3), result.get(1, 3));
+
+        assertEquals(expected.get(2, 0), result.get(2, 0));
+        assertEquals(expected.get(2, 1), result.get(2, 1));
+        assertEquals(expected.get(2, 2), result.get(2, 2));
+        assertEquals(expected.get(2, 3), result.get(2, 3));
+
+        assertEquals(expected.get(3, 0), result.get(3, 0));
+        assertEquals(expected.get(3, 1), result.get(3, 1));
+        assertEquals(expected.get(3, 2), result.get(3, 2));
+        assertEquals(expected.get(3, 3), result.get(3, 3));
     }
 }
