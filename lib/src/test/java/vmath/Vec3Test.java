@@ -61,25 +61,20 @@ class Vec3Test {
     void givenNonZeroVectors_whenSquaredMagnitudeCalculated_thenResultsAreCorrect() {
         var v1 = new Vec3(1.0f, 0.0f, 0.0f);
         assertEquals(v1.magSqr(), 1.0f);
-
         var v2 = new Vec3(0.0f, 1.0f, 0.0f);
         assertEquals(v2.magSqr(), 1.0f);
-
         var v3 = new Vec3(0.0f, 0.0f, 1.0f);
         assertEquals(v3.magSqr(), 1.0f);
-
         var v4 = new Vec3(-1.0f, 0.0f, 0.0f);
         assertEquals(v4.magSqr(), 1.0f);
-
         var v5 = new Vec3(0.0f, -1.0f, 0.0f);
         assertEquals(v5.magSqr(), 1.0f);
-
         var v6 = new Vec3(0.0f, 0.0f, -1.0f);
         assertEquals(v6.magSqr(), 1.0f);
-
         var v7 = new Vec3(1.0f, 1.0f, 1.0f);
         assertEquals(v7.magSqr(), 3.0);
     }
+
     @Test
     void givenNonZeroVector_whenNormalized_thenResultIsUnitVector() {
         var v = new Vec3(0.0f, 10.0f, 0.0f).norm();
