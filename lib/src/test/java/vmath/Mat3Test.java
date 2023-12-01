@@ -124,9 +124,9 @@ public class Mat3Test {
     @Test
     void givenVec3_whenMultiplied_thenResultIsCorrect() {
         Mat3 m = new Mat3(
-                1.0f, 2.0f, 3.0f,
-                4.0f, 5.0f, 6.0f,
-                7.0f, 8.0f, 9.0f
+            1.0f, 2.0f, 3.0f,
+            4.0f, 5.0f, 6.0f,
+            7.0f, 8.0f, 9.0f
         );
         Vec3 v = new Vec3(5.0f, 6.0f, 7.0f);
 
