@@ -55,9 +55,9 @@ public class Mat4 {
             for (int j = 0; j < 4; j++) {
                 float value = 0.0f;
                 for (int k = 0; k < 4; k++) {
-                    value += this.get(i, k) * other.get(k, j);
+                    value += this.get(i, k)*other.get(k, j);
                 }
-                result.m[i * 4 + j] = value;
+                result.m[i*4 + j] = value;
             }
         }
         return result;
