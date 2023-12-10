@@ -42,7 +42,7 @@ public class Mat3 {
         if (i < 0 || i >= 3 || j < 0 || j >= 3) {
             throw new IndexOutOfBoundsException();
         }
-        return m[i * 3 + j];
+        return m[i*3 + j];
     }
 
     public void transp() {
@@ -50,7 +50,7 @@ public class Mat3 {
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                result[i * 3 + j] = m[j * 3 + i];
+                result[i*3 + j] = m[j*3 + i];
             }
         }
 
