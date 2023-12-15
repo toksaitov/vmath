@@ -40,4 +40,8 @@ public class Mat2 {
         }
         return m[i * 2 + j];
     }
+
+    public float[] toArray() {
+        return m.clone();
+    }
 }

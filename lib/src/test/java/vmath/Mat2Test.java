@@ -2,8 +2,7 @@ package vmath;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class Mat2Test {
 
@@ -119,5 +118,18 @@ public class Mat2Test {
 
         assertThrows(IndexOutOfBoundsException.class, () -> m.get(0, -1));
         assertThrows(IndexOutOfBoundsException.class, () -> m.get(0, 2));
+    }
+
+    @Test
+    void whenToArrayCalled_thenConvertsTo1DArray() {
+        var m = new Mat2(
+                1.0f, 2.0f,
+                3.0f, 4.0f
+        );
+
+        float[] expectedArray = {1.0f, 2.0f, 3.0f, 4.0f};
+        float[] actualArray = m.toArray();
+
+        assertArrayEquals(expectedArray, actualArray, "Conversion to 1-D array is incorrect");
     }
 }
