@@ -122,7 +122,7 @@ public class Mat3Test {
     }
 
     @Test
-    void givenNoArgs_whenMat3Created_thenMatrixIsTransposed() {
+    void givenIdentityMatrix_whenTransposed_thenResultIsCorrect() {
         var m = new Mat3();
         m.transp();
 
@@ -140,7 +140,7 @@ public class Mat3Test {
     }
 
     @Test
-    void givenArrayArg_whenMat3Created_thenMatrixIsTransposed() {
+    void givenMatrixWithValues_whenTransposed_thennResultIsCorrect() {
         var a = new float[] {
                 1.0f, 2.0f, 3.0f,
                 4.0f, 5.0f, 6.0f,
