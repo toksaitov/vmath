@@ -8,7 +8,7 @@ public class Vec4 {
     }
 
     public Vec4(float x, float y, float z, float w) {
-        if (Float.isNaN(x) || Float.isNaN(y) || Float.isNaN(z) || Float.isNaN(w)) {
+        if (Float.isNaN(x) || Float.isNaN(y) || Float.isNaN(z) || Float.isNaN(w)){
             throw new ArithmeticException();
         }
         this.x = x;
