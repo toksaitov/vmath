@@ -120,4 +120,19 @@ public class Mat3Test {
         };
         assertThrows(ArithmeticException.class, () -> new Mat3(a2));
     }
+
+    @Test
+    void whenMat3ConvertedToArray_thenArrayContainsMatrixValues() {
+        float[] expectedArray = {
+            1.0f, 0.0f, 0.0f,
+            0.0f, 1.0f, 0.0f,
+            0.0f, 0.0f, 1.0f
+        };
+
+        Mat3 m = new Mat3();
+        float[] resultArray = m.toArray();
+
+        assertArrayEquals(expectedArray, resultArray, 0.0001f); 
+    }
+
 }
