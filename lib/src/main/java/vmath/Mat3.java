@@ -44,4 +44,8 @@ public class Mat3 {
         }
         return m[i * 3 + j];
     }
+
+    public float[] toArray() {
+        return m.clone();
+    }
 }
