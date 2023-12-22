@@ -43,6 +43,6 @@ public class Mat2 {
     @Override
     public String toString() {
         return "(" + m[0]  + ", " + m[1]  + ")" + "\n" +
-               "(" + m[2]  + ", " + m[4]  + ")";
+               "(" + m[2]  + ", " + m[3]  + ")";
     }
 }
