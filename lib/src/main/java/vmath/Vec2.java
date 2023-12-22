@@ -54,7 +54,6 @@ public class Vec2 {
         float newY = (1 - t)*y + t*other.y;
         return new Vec2(newX, newY);
     }
-    
 
     @Override
     public String toString() {
