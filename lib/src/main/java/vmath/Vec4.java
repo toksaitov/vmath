@@ -8,7 +8,7 @@ public class Vec4 {
     }
 
     public Vec4(float x, float y, float z, float w) {
-        if (Float.isNaN(x) || Float.isNaN(y) || Float.isNaN(z) || Float.isNaN(w)){
+        if (Float.isNaN(x) || Float.isNaN(y) || Float.isNaN(z) || Float.isNaN(w)) {
             throw new ArithmeticException();
         }
         this.x = x;
@@ -37,6 +37,10 @@ public class Vec4 {
         return (float) Math.sqrt(x*x + y*y + z*z + w*w);
     }
 
+    public float magSqr() {
+        return x*x + y*y + z*z + w*w;
+    }
+
     public Vec4 norm() {
         float norm = 1.0f / (float) Math.sqrt(x*x + y*y + z*z + w*w);
         return new Vec4(x*norm, y*norm, z*norm, w*norm);
@@ -51,7 +55,7 @@ public class Vec4 {
     }
 
     public Vec4 mul(float scalar) {
-        return new Vec4(x * scalar, y * scalar, z * scalar, w * scalar);
+        return new Vec4(x*scalar, y*scalar, z*scalar, w*scalar);
     }
 
     public float dot(Vec4 other) {

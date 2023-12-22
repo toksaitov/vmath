@@ -28,6 +28,10 @@ public class Vec2 {
         return (float) Math.sqrt(x*x + y*y);
     }
 
+    public float magSqr() {
+        return x*x + y*y;
+    }
+
     public Vec2 norm() {
         float norm = 1.0f / (float) Math.sqrt(x*x + y*y);
         return new Vec2(x*norm, y*norm);
