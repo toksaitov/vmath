@@ -51,7 +51,7 @@ public class Vec4 {
     }
 
     public Vec4 mul(float scalar) {
-        return new Vec4(x*scalar, y*scalar, z*scalar, w*scalar);
+        return new Vec4(x * scalar, y * scalar, z * scalar, w * scalar);
     }
 
     public float dot(Vec4 other) {
