@@ -140,14 +140,21 @@ public class Vec4Test {
     void givenTwoVectors_whenLerpCalculated_thenResultIsCorrect() {
         var v1 = new Vec4(1.0f, 2.0f, 3.0f, 4.0f);
         var v2 = new Vec4(2.0f, 3.0f, 1.0f, 2.0f);
-        float t = 0.5f;
+        float t1 = 0.5f;
+        Vec4 result1 = v1.lerp(v2, t1);
+        assertEquals(result1.x(), 1.5f);
+        assertEquals(result1.y(), 2.5f);
+        assertEquals(result1.z(), 2.0f);
+        assertEquals(result1.w(), 3.0f);
 
-        Vec4 result = v1.lerp(v2, t);
-
-        assertEquals(result.x(), 1.5f);
-        assertEquals(result.y(), 2.5f);
-        assertEquals(result.z(), 2.0f);
-        assertEquals(result.w(), 3.0f);
+        var v3 = new Vec4(-1.0f, 0.0f, 1.0f, 1.0f);
+        var v4 = new Vec4(1.0f, 2.0f, 3.0f, 4.0f);
+        float t2 = 0.25f;
+        Vec4 result2 = v3.lerp(v4, t2);
+        assertEquals(result2.x(), -0.5f);
+        assertEquals(result2.y(), 0.5f);
+        assertEquals(result2.z(), 1.5f);
+        assertEquals(result2.w(), 1.75f);
     }
 
     @Test
