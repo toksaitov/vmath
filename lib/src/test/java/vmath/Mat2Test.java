@@ -120,4 +120,14 @@ public class Mat2Test {
         assertThrows(IndexOutOfBoundsException.class, () -> m.get(0, -1));
         assertThrows(IndexOutOfBoundsException.class, () -> m.get(0, 2));
     }
+    @Test
+    void givenRealParameters_whenConvertedToString_thenResultIsCorrect() {
+        var m = new Mat4(
+            2.0f, 3.0f,
+            5.0f, 1.0f
+        );
+        assertEquals(m.toString(), "(2.0, 3.0)\n"    +
+                                   "(5.0, 1.0)\n"    +
+                                   
+    }
 }
