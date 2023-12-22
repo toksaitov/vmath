@@ -53,6 +53,12 @@ public class Vec2 {
         return x*other.x + y*other.y;
     }
 
+    public Vec2 lerp(Vec2 other, float t) {
+        float newX = (1 - t)*x + t*other.x;
+        float newY = (1 - t)*y + t*other.y;
+        return new Vec2(newX, newY);
+    }
+
     @Override
     public String toString() {
         return "(" + x + ", " + y + ")";

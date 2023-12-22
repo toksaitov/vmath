@@ -173,6 +173,25 @@ class Vec3Test {
     }
 
     @Test
+    void givenTwoVectors_whenLerpCalculated_thenResultIsCorrect() {
+        Vec3 v1 = new Vec3(1.0f, 2.0f, 3.0f);
+        Vec3 v2 = new Vec3(3.0f, 4.0f, 5.0f);
+        float t1 = 0.5f;
+        Vec3 result1 = v1.lerp(v2, t1);
+        assertEquals(result1.x(), 2.0f);
+        assertEquals(result1.y(), 3.0f);
+        assertEquals(result1.z(), 4.0f);
+
+        Vec3 v3 = new Vec3(-1.0f, 0.0f, 1.0f);
+        Vec3 v4 = new Vec3(1.0f, 2.0f, 3.0f);
+        float t2 = 0.25f;
+        Vec3 result2 = v3.lerp(v4, t2);
+        assertEquals(result2.x(), -0.5f);
+        assertEquals(result2.y(), 0.5f);
+        assertEquals(result2.z(), 1.5);
+    }
+
+    @Test
     void givenZeroVector_whenConvertedToString_thenResultIsZeroString() {
         var v1 = new Vec3();
         assertEquals(v1.toString(), "(0.0, 0.0, 0.0)");

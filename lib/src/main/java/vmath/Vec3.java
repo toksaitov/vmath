@@ -70,6 +70,13 @@ public class Vec3 {
         return this.dot(bCrossC);
     }
 
+    public Vec3 lerp(Vec3 other, float t) {
+        float newX = (1 - t)*x + t*other.x;
+        float newY = (1 - t)*y + t*other.y;
+        float newZ = (1 - t)*z + t*other.z;
+        return new Vec3(newX, newY, newZ);
+    }
+
     public String toString() {
         return "(" + x + ", " + y + ", " + z + ")";
     }

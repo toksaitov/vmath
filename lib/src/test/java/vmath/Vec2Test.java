@@ -140,6 +140,23 @@ public class Vec2Test {
     }
 
     @Test
+    void givenTwoVectors_whenLerpCalculated_thenResultIsCorrect() {
+        Vec2 v1 = new Vec2(1.0f, 2.0f);
+        Vec2 v2 = new Vec2(3.0f, 4.0f);
+        float t1 = 0.5f;
+        Vec2 result1 = v1.lerp(v2, t1);
+        assertEquals(result1.x(), 2.0f);
+        assertEquals(result1.y(), 3.0f);
+
+        Vec2 v3 = new Vec2(-1.0f, 0.0f);
+        Vec2 v4 = new Vec2(1.0f, 2.0f);
+        float t2 = 0.25f;
+        Vec2 result2 = v3.lerp(v4, t2);
+        assertEquals(result2.x(), -0.5f);
+        assertEquals(result2.y(), 0.5f);
+    }
+
+    @Test
     void givenZeroVector_whenConvertedToString_thenResultIsZeroString() {
         var v1 = new Vec2();
         assertEquals(v1.toString(), "(0.0, 0.0)");

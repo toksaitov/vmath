@@ -62,6 +62,14 @@ public class Vec4 {
         return x*other.x + y*other.y + z*other.z + w*other.w;
     }
 
+    public Vec4 lerp(Vec4 other, float t) {
+        float newX = (1 - t)*x + t*other.x;
+        float newY = (1 - t)*y + t*other.y;
+        float newZ = (1 - t)*z + t*other.z;
+        float newW = (1 - t)*w + t*other.w;
+        return new Vec4(newX, newY, newZ, newW);
+    }
+
     @Override
     public String toString() {
         return "(" + x + ", " + y + ", " + z + ", " + w + ")";
