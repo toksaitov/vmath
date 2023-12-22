@@ -122,12 +122,12 @@ public class Mat2Test {
     }
     @Test
     void givenRealParameters_whenConvertedToString_thenResultIsCorrect() {
-        var m = new Mat4(
+        var m = new Mat2(
             2.0f, 3.0f,
             5.0f, 1.0f
         );
-        assertEquals(m.toString(), "(2.0, 3.0)\n"    +
-                                   "(5.0, 1.0)\n"    +
-                                   
+       assertEquals(m.toString(), "(2.0, 3.0)\n"    +
+                                   "(5.0, 1.0)");
     }
+
 }
