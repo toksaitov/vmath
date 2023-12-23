@@ -52,4 +52,8 @@ public class Mat3 {
             other.x()*m[6] + other.y()*m[7] + other.z()*m[8]
         );
     }
+    
+    public float[] toArray() {
+        return m.clone();
+    }
 }
