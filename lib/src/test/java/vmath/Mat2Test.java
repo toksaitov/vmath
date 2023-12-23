@@ -121,15 +121,18 @@ public class Mat2Test {
     }
 
     @Test
-    void whenToArrayCalled_thenConvertsTo1DArray() {
+    void whenToArrayCalled_thenConvertsToArray() {
         var m = new Mat2(
-                1.0f, 2.0f,
-                3.0f, 4.0f
+            1.0f, 2.0f,
+            3.0f, 4.0f
         );
 
-        float[] expectedArray = {1.0f, 2.0f, 3.0f, 4.0f};
-        float[] actualArray = m.toArray();
-
-        assertArrayEquals(expectedArray, actualArray, "Conversion to 1-D array is incorrect");
+        float[] a1 = {
+            1.0f, 2.0f,
+            3.0f, 4.0f
+        };
+        float[] a2 = m.toArray();
+        assertArrayEquals(a1, a2);
+        assertNotSame(a1, a2);
     }
 }
