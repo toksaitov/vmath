@@ -44,4 +44,10 @@ public class Mat2 {
     public float[] toArray() {
         return m.clone();
     }
+  
+    @Override
+    public String toString() {
+        return "(" + m[0]  + ", " + m[1]  + ")" + "\n" +
+               "(" + m[2]  + ", " + m[3]  + ")";
+    }
 }
