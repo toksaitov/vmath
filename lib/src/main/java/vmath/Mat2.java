@@ -41,6 +41,13 @@ public class Mat2 {
         return m[i * 2 + j];
     }
 
+    public Vec2 mul(Vec2 other) {
+        return new Vec2(
+            other.x()*m[0] + other.y()*m[1],
+            other.x()*m[2] + other.y()*m[3]
+        );
+    }
+  
     public float[] toArray() {
         return m.clone();
     }
