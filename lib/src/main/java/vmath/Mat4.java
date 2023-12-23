@@ -49,6 +49,15 @@ public class Mat4 {
         return m[i * 4 + j];
     }
 
+    public Vec4 mul(Vec4 other) {
+        return new Vec4(
+            other.x()*m[0] + other.y()*m[1] + other.z()*m[2] + other.w()*m[3],
+            other.x()*m[4] + other.y()*m[5] + other.z()*m[6] + other.w()*m[7],
+            other.x()*m[8] + other.y()*m[9] + other.z()*m[10] + other.w()*m[11],
+            other.x()*m[12] + other.y()*m[13] + other.z()*m[14] + other.w()*m[15]
+        );
+    }
+
     @Override
     public String toString() {
         return "(" + m[0]  + ", " + m[1]  + ", " + m[2]  + ", " + m[3]  + ")" + "\n" +
