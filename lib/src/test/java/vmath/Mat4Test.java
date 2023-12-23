@@ -196,6 +196,24 @@ public class Mat4Test {
     }
 
     @Test
+    void givenVec4_whenMultiplied_thenResultIsCorrect() {
+        Mat4 m = new Mat4(
+            1.0f, 2.0f, 3.0f, 4.0f,
+            5.0f, 6.0f, 7.0f, 8.0f,
+            9.0f, 10.0f, 11.0f, 12.0f,
+	    13.0f, 14.0f, 15.0f, 16.0f
+        );
+        Vec4 v = new Vec4(5.0f, 6.0f, 7.0f, 8.0f);
+
+        Vec4 r = m.mul(v);
+
+        assertEquals(70.0f, r.x());
+        assertEquals(174.0f, r.y());
+        assertEquals(278.0f, r.z());
+	assertEquals(382.0f, r.w());
+    }
+
+    @Test
     void givenNoArgsMatrix_whenConvertedToString_thenResultIsIdentityMatrix() {
         var m = new Mat4();
         assertEquals(m.toString(), "(1.0, 0.0, 0.0, 0.0)\n" +
