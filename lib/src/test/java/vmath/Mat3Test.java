@@ -1,8 +1,8 @@
 package vmath;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class Mat3Test {
 
@@ -120,4 +120,23 @@ public class Mat3Test {
         };
         assertThrows(ArithmeticException.class, () -> new Mat3(a2));
     }
+
+    @Test
+    void whenToArrayCalled_thenConvertsToArray() {
+        var m = new Mat3(
+            1.0f, 2.0f, 3.0f,
+            4.0f, 5.0f, 6.0f,
+            7.0f, 8.0f, 9.0f
+        );
+
+        float[] a1 = {
+            1.0f, 2.0f, 3.0f,
+            4.0f, 5.0f, 6.0f,
+            7.0f, 8.0f, 9.0f
+        };
+        float[] a2 = m.toArray();
+        assertArrayEquals(a1, a2);
+        assertNotSame(a1, a2);
+    }
+
 }
