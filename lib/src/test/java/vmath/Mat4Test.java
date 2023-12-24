@@ -196,6 +196,126 @@ public class Mat4Test {
     }
 
     @Test
+    void givenIdentityMatrix_whenMultipliedWithAnyMatrix_thenResultIsTheSame() {
+        var i = new Mat4(); 
+        var m = new Mat4(
+            1.0f, 2.0f, 3.0f, 4.0f,
+            5.0f, 6.0f, 7.0f, 8.0f,
+            9.0f, 10.0f, 11.0f, 12.0f,
+            13.0f, 14.0f, 15.0f, 16.0f
+        );
+        var dot = i.mul(m);
+        
+        assertEquals(1.0f, dot.get(0, 0));
+        assertEquals(2.0f, dot.get(0, 1));
+        assertEquals(3.0f, dot.get(0, 2));
+        assertEquals(4.0f, dot.get(0, 3));
+
+        assertEquals(5.0f, dot.get(1, 0));
+        assertEquals(6.0f, dot.get(1, 1));
+        assertEquals(7.0f, dot.get(1, 2));
+        assertEquals(8.0f, dot.get(1, 3));
+
+        assertEquals(9.0f, dot.get(2, 0));
+        assertEquals(10.0f, dot.get(2, 1));
+        assertEquals(11.0f, dot.get(2, 2));
+        assertEquals(12.0f, dot.get(2, 3));
+
+        assertEquals(13.0f, dot.get(3, 0));
+        assertEquals(14.0f, dot.get(3, 1));
+        assertEquals(15.0f, dot.get(3, 2));
+        assertEquals(16.0f, dot.get(3, 3));
+    }
+
+    @Test
+    void givenTwoSpecificMatrices_whenMultiplied_thenResultIsAsExpected() {
+        var m1 = new Mat4(
+            1.0f, 2.0f, 3.0f, 4.0f,
+            5.0f, 6.0f, 7.0f, 8.0f,
+            9.0f, 10.0f, 11.0f, 12.0f,
+            13.0f, 14.0f, 15.0f, 16.0f
+        );
+        var m2 = new Mat4(
+            2.0f, 0.0f, 0.0f, 0.0f,
+            0.0f, 2.0f, 0.0f, 0.0f,
+            0.0f, 0.0f, 2.0f, 0.0f,
+            0.0f, 0.0f, 0.0f, 2.0f
+        );
+        var expected = new Mat4(
+            2.0f, 4.0f, 6.0f, 8.0f,
+            10.0f, 12.0f, 14.0f, 16.0f,
+            18.0f, 20.0f, 22.0f, 24.0f,
+            26.0f, 28.0f, 30.0f, 32.0f
+        );
+        var dot = m1.mul(m2);
+
+        assertEquals(expected.get(0, 0), dot.get(0, 0));
+        assertEquals(expected.get(0, 1), dot.get(0, 1));
+        assertEquals(expected.get(0, 2), dot.get(0, 2));
+        assertEquals(expected.get(0, 3), dot.get(0, 3));
+
+        assertEquals(expected.get(1, 0), dot.get(1, 0));
+        assertEquals(expected.get(1, 1), dot.get(1, 1));
+        assertEquals(expected.get(1, 2), dot.get(1, 2));
+        assertEquals(expected.get(1, 3), dot.get(1, 3));
+
+        assertEquals(expected.get(2, 0), dot.get(2, 0));
+        assertEquals(expected.get(2, 1), dot.get(2, 1));
+        assertEquals(expected.get(2, 2), dot.get(2, 2));
+        assertEquals(expected.get(2, 3), dot.get(2, 3));
+
+        assertEquals(expected.get(3, 0), dot.get(3, 0));
+        assertEquals(expected.get(3, 1), dot.get(3, 1));
+        assertEquals(expected.get(3, 2), dot.get(3, 2));
+        assertEquals(expected.get(3, 3), dot.get(3, 3));
+    }
+
+    @Test
+    void givenMatricesFromFloatArray_whenMultiplied_thenResultIsAsExpected() {
+        float[] a1 = {
+            1.0f, 2.0f, 3.0f, 4.0f,
+            5.0f, 6.0f, 7.0f, 8.0f,
+            9.0f, 10.0f, 11.0f, 12.0f,
+            13.0f, 14.0f, 15.0f, 16.0f
+        };
+        float[] a2 = {
+            2.0f, 0.0f, 0.0f, 0.0f,
+            0.0f, 2.0f, 0.0f, 0.0f,
+            0.0f, 0.0f, 2.0f, 0.0f,
+            0.0f, 0.0f, 0.0f, 2.0f
+        };
+        var m1 = new Mat4(a1);
+        var m2 = new Mat4(a2);
+        var expected = new Mat4(
+            2.0f, 4.0f, 6.0f, 8.0f,
+            10.0f, 12.0f, 14.0f, 16.0f,
+            18.0f, 20.0f, 22.0f, 24.0f,
+            26.0f, 28.0f, 30.0f, 32.0f
+        );
+        var dot = m1.mul(m2);
+
+        assertEquals(expected.get(0, 0), dot.get(0, 0));
+        assertEquals(expected.get(0, 1), dot.get(0, 1));
+        assertEquals(expected.get(0, 2), dot.get(0, 2));
+        assertEquals(expected.get(0, 3), dot.get(0, 3));
+
+        assertEquals(expected.get(1, 0), dot.get(1, 0));
+        assertEquals(expected.get(1, 1), dot.get(1, 1));
+        assertEquals(expected.get(1, 2), dot.get(1, 2));
+        assertEquals(expected.get(1, 3), dot.get(1, 3));
+
+        assertEquals(expected.get(2, 0), dot.get(2, 0));
+        assertEquals(expected.get(2, 1), dot.get(2, 1));
+        assertEquals(expected.get(2, 2), dot.get(2, 2));
+        assertEquals(expected.get(2, 3), dot.get(2, 3));
+
+        assertEquals(expected.get(3, 0), dot.get(3, 0));
+        assertEquals(expected.get(3, 1), dot.get(3, 1));
+        assertEquals(expected.get(3, 2), dot.get(3, 2));
+        assertEquals(expected.get(3, 3), dot.get(3, 3));
+    }
+
+    @Test
     void givenNoArgsMatrix_whenConvertedToString_thenResultIsIdentityMatrix() {
         var m = new Mat4();
         assertEquals(m.toString(), "(1.0, 0.0, 0.0, 0.0)\n" +
