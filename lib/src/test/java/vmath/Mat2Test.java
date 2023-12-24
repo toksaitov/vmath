@@ -2,8 +2,7 @@ package vmath;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class Mat2Test {
 
@@ -121,15 +120,59 @@ public class Mat2Test {
         assertThrows(IndexOutOfBoundsException.class, () -> m.get(0, 2));
     }
 
-    void givenMatrices_whenMultiplied_thenResultIsCorrect() {
-        Mat2 m1 = new Mat2(1.0f, 2.0f, 3.0f, 4.0f);
-        Mat2 m2 = new Mat2(5.0f, 6.0f, 7.0f, 8.0f);
-        
-        Mat2 newMat = m1.mul(m2);
+    @Test
+    void givenVec2_whenMultiplied_thenResultIsCorrect() {
+        Mat2 m = new Mat2(
+            1.0f, 2.0f,
+            3.0f, 4.0f
+        );
+        Vec2 v = new Vec2(5.0f, 6.0f);
 
-        assertEquals(19.0f, newMat.get(0, 0));
-        assertEquals(22.0f, newMat.get(0, 1));
-        assertEquals(43.0f, newMat.get(1, 0));
-        assertEquals(50.0f, newMat.get(1, 1));
+        Vec2 r = m.mul(v);
+
+        assertEquals(17.0f, r.x());
+        assertEquals(39.0f, r.y());
+    }
+  
+    @Test
+    void whenToArrayCalled_thenConvertsToArray() {
+        var m = new Mat2(
+            1.0f, 2.0f,
+            3.0f, 4.0f
+        );
+        float[] a1 = {
+            1.0f, 2.0f,
+            3.0f, 4.0f
+        };
+        float[] a2 = m.toArray();
+        assertArrayEquals(a1, a2);
+        assertNotSame(a1, a2);
+    }
+
+    @Test
+    void givenNoArgsMatrix_whenConvertedToString_thenResultIsIdentityMatrix() {
+        var m = new Mat2();
+        assertEquals(m.toString(), "(1.0, 0.0)\n" +
+                                   "(0.0, 1.0)");
+    }
+
+    @Test
+    void givenIntParameters_whenConvertedToString_thenResultIsFloatString() {
+        var m = new Mat2(
+            1, 2,
+            3, 4
+        );
+        assertEquals(m.toString(), "(1.0, 2.0)\n" +
+                                   "(3.0, 4.0)");
+    }
+
+    @Test
+    void givenRealParameters_whenConvertedToString_thenResultIsCorrect() {
+        var m = new Mat2(
+            2.0f, 3.0f,
+            5.0f, 1.0f
+        );
+        assertEquals(m.toString(), "(2.0, 3.0)\n" +
+                                   "(5.0, 1.0)");
     }
 }
