@@ -72,6 +72,6 @@ public class Mat4 {
     }
 
     public float[] toArray() {
-        return null;
+        return m.clone();
     }
 }
