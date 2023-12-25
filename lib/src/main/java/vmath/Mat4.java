@@ -70,4 +70,8 @@ public class Mat4 {
                "(" + m[8]  + ", " + m[9]  + ", " + m[10] + ", " + m[11] + ")" + "\n" +
                "(" + m[12] + ", " + m[13] + ", " + m[14] + ", " + m[15] + ")";
     }
+
+    public float[] toArray() {
+        return m.clone();
+    }
 }
