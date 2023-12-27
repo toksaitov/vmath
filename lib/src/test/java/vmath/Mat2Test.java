@@ -180,14 +180,14 @@ public class Mat2Test {
     void givenIdentityMatrix_whenMultipliedWithAnyMatrix_thenResultIsTheSame() {
         var i = new Mat2(); 
         var m = new Mat2(
-        1.0f, 2.0f,
-        3.0f, 4.0f
+            1.0f, 2.0f,
+            3.0f, 4.0f
         );
         var dot = i.mul(m);
 
         var expected = new Mat2(
-        1.0f, 2.0f,
-        3.0f, 4.0f
+            1.0f, 2.0f,
+            3.0f, 4.0f
         );
 
         assertEquals(expected.get(0, 0), dot.get(0, 0));
@@ -199,18 +199,18 @@ public class Mat2Test {
     @Test
     void givenTwoSpecificMatrices_whenMultiplied_thenResultIsAsExpected() {
         var m1 = new Mat2(
-        1.0f, 2.0f,
-        3.0f, 4.0f
+            1.0f, 2.0f,
+            3.0f, 4.0f
         );
 
         var m2 = new Mat2(
-        5.0f, 6.0f,
-        7.0f, 8.0f
+            5.0f, 6.0f,
+            7.0f, 8.0f
         );
 
         var expected = new Mat2(
-        19.0f, 22.0f,
-        43.0f, 50.0f
+            19.0f, 22.0f,
+            43.0f, 50.0f
         );
 
         var result = m1.mul(m2);
@@ -237,8 +237,8 @@ public class Mat2Test {
         var m2 = new Mat2(a2);
 
         var expected = new Mat2(
-        19.0f, 22.0f,
-        43.0f, 50.0f
+            19.0f, 22.0f,
+            43.0f, 50.0f
         );
 
         var result = m1.mul(m2);
