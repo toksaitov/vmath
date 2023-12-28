@@ -47,5 +47,27 @@ public class Mat4 {
             throw new IndexOutOfBoundsException();
         }
         return m[i * 4 + j];
+    } 
+
+    public Mat4 mul(Mat4 other) {
+        Mat4 result = new Mat4();
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                float value = 0.0f;
+                for (int k = 0; k < 4; k++) {
+                    value += this.get(i, k)*other.get(k, j);
+                }
+                result.m[i*4 + j] = value;
+            }
+        }
+        return result;
+    }    
+
+    @Override
+    public String toString() {
+        return "(" + m[0]  + ", " + m[1]  + ", " + m[2]  + ", " + m[3]  + ")" + "\n" +
+               "(" + m[4]  + ", " + m[5]  + ", " + m[6]  + ", " + m[7]  + ")" + "\n" +
+               "(" + m[8]  + ", " + m[9]  + ", " + m[10] + ", " + m[11] + ")" + "\n" +
+               "(" + m[12] + ", " + m[13] + ", " + m[14] + ", " + m[15] + ")";
     }
 }
