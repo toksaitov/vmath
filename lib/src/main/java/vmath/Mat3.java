@@ -45,22 +45,6 @@ public class Mat3 {
         return m[i * 3 + j];
     }
 
-    public Mat3 mul(Mat3 other) {
-        float[] res = new float[9];
-
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                int sum = 0;
-                for (int k = 0; k < 3; k++) {
-                    sum += this.get(i, k)*other.get(k, j);
-                }
-                res[i*3 + j] = sum;
-            }
-        }
-
-        return new Mat3(res);
-    }
-
     public Vec3 mul(Vec3 other) {
         return new Vec3(
             other.x()*m[0] + other.y()*m[1] + other.z()*m[2],
