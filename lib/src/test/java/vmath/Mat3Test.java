@@ -122,6 +122,95 @@ public class Mat3Test {
     }
 
     @Test
+    void givenIdentityMatrix_whenMultipliedWithAnyMatrix_thenResultIsTheSame() {
+        var i = new Mat3(); 
+        var m = new Mat3(
+            1.0f, 2.0f, 3.0f,
+            4.0f, 5.0f, 6.0f,
+            7.0f, 8.0f, 9.0f
+        );
+        var dot = i.mul(m);
+
+        assertEquals(1.0f, dot.get(0, 0));
+        assertEquals(2.0f, dot.get(0, 1));
+        assertEquals(3.0f, dot.get(0, 2));
+
+        assertEquals(4.0f, dot.get(1, 0));
+        assertEquals(5.0f, dot.get(1, 1));
+        assertEquals(6.0f, dot.get(1, 2));
+
+        assertEquals(7.0f, dot.get(2, 0));
+        assertEquals(8.0f, dot.get(2, 1));
+        assertEquals(9.0f, dot.get(2, 2));
+    }
+
+    @Test
+    void givenTwoSpecificMatrices_whenMultiplied_thenResultIsAsExpected() {
+        var m1 = new Mat3(
+            1.0f, 2.0f, 3.0f,
+            4.0f, 5.0f, 6.0f,
+            7.0f, 8.0f, 9.0f
+        );
+        var m2 = new Mat3(
+            2.0f, 0.0f, 0.0f,
+            0.0f, 2.0f, 0.0f,
+            0.0f, 0.0f, 2.0f
+        );
+        var expected = new Mat3(
+            2.0f, 4.0f, 6.0f,
+            8.0f, 10.0f, 12.0f,
+            14.0f, 16.0f, 18.0f
+        );
+        var dot = m1.mul(m2);
+
+        assertEquals(expected.get(0, 0), dot.get(0, 0));
+        assertEquals(expected.get(0, 1), dot.get(0, 1));
+        assertEquals(expected.get(0, 2), dot.get(0, 2));
+
+        assertEquals(expected.get(1, 0), dot.get(1, 0));
+        assertEquals(expected.get(1, 1), dot.get(1, 1));
+        assertEquals(expected.get(1, 2), dot.get(1, 2));
+
+        assertEquals(expected.get(2, 0), dot.get(2, 0));
+        assertEquals(expected.get(2, 1), dot.get(2, 1));
+        assertEquals(expected.get(2, 2), dot.get(2, 2));
+    }
+
+    @Test
+    void givenMatricesFromFloatArray_whenMultiplied_thenResultIsAsExpected() {
+        float[] a1 = {
+            1.0f, 2.0f, 3.0f,
+            4.0f, 5.0f, 6.0f,
+            7.0f, 8.0f, 9.0f
+        };
+        float[] a2 = {
+            2.0f, 0.0f, 0.0f,
+            0.0f, 2.0f, 0.0f,
+            0.0f, 0.0f, 2.0f
+        };
+        var m1 = new Mat3(a1);
+        var m2 = new Mat3(a2);
+        var expected = new Mat3(
+            2.0f, 4.0f, 6.0f,
+            8.0f, 10.0f, 12.0f,
+            14.0f, 16.0f, 18.0f
+        );
+        var dot = m1.mul(m2);
+
+        assertEquals(expected.get(0, 0), dot.get(0, 0));
+        assertEquals(expected.get(0, 1), dot.get(0, 1));
+        assertEquals(expected.get(0, 2), dot.get(0, 2));
+
+        assertEquals(expected.get(1, 0), dot.get(1, 0));
+        assertEquals(expected.get(1, 1), dot.get(1, 1));
+        assertEquals(expected.get(1, 2), dot.get(1, 2));
+
+        assertEquals(expected.get(2, 0), dot.get(2, 0));
+        assertEquals(expected.get(2, 1), dot.get(2, 1));
+        assertEquals(expected.get(2, 2), dot.get(2, 2));
+    }
+
+    @Test
     void givenVec3_whenMultiplied_thenResultIsCorrect() {
         Mat3 m = new Mat3(
             1.0f, 2.0f, 3.0f,
