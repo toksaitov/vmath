@@ -60,4 +60,16 @@ public class Mat3 {
 
         return new Mat3(res);
     }
+
+    public Vec3 mul(Vec3 other) {
+        return new Vec3(
+            other.x()*m[0] + other.y()*m[1] + other.z()*m[2],
+            other.x()*m[3] + other.y()*m[4] + other.z()*m[5],
+            other.x()*m[6] + other.y()*m[7] + other.z()*m[8]
+        );
+    }
+    
+    public float[] toArray() {
+        return m.clone();
+    }
 }
