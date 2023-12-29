@@ -30,15 +30,27 @@ public class Vec2 {
         this.x = x;
         this.y = y;
     }
-
+    /**
+     * Gets the x component of the vector.
+     * 
+     * @return The x component.
+     */
     public float x() {
         return x;
     }
-
+    /**
+     * Gets the y component of the vector.
+     * 
+     * @return The y component.
+     */
     public float y() {
         return y;
     }
-
+    /**
+     * Calculates the magnitude of the vector.
+     * 
+     * @return The magnitude of the vector.
+     */
     public float mag() {
         return (float) Math.sqrt(x*x + y*y);
     }
