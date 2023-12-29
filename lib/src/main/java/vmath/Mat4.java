@@ -70,4 +70,16 @@ public class Mat4 {
                "(" + m[8]  + ", " + m[9]  + ", " + m[10] + ", " + m[11] + ")" + "\n" +
                "(" + m[12] + ", " + m[13] + ", " + m[14] + ", " + m[15] + ")";
     }
+
+    public Mat4 transp() {
+        float[] transposedMatrix = new float[16];
+
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                transposedMatrix[i * 4 + j] = m[j * 4 + i];
+            }
+        }
+
+        return new Mat4(transposedMatrix);
+    }
 }

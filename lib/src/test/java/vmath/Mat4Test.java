@@ -351,4 +351,37 @@ public class Mat4Test {
                                    "(9.0, 10.0, 11.0, 12.0)\n" +
                                    "(13.0, 14.0, 15.0, 16.0)");
     }
+
+    @Test
+    void givenMatrix_whenTransposed_thenResultIsCorrect() {
+        var m = new Mat4(
+            1.0f, 2.0f, 3.0f, 4.0f,
+            5.0f, 6.0f, 7.0f, 8.0f,
+            9.0f, 10.0f, 11.0f, 12.0f,
+            13.0f, 14.0f, 15.0f, 16.0f
+        );
+
+        var transposed = m.transp();
+
+        assertEquals(m.get(0, 0), transposed.get(0, 0));
+        assertEquals(m.get(1, 1), transposed.get(1, 1));
+        assertEquals(m.get(2, 2), transposed.get(2, 2));
+        assertEquals(m.get(3, 3), transposed.get(3, 3));
+
+        assertEquals(m.get(0, 1), transposed.get(1, 0));
+        assertEquals(m.get(0, 2), transposed.get(2, 0));
+        assertEquals(m.get(0, 3), transposed.get(3, 0));
+
+        assertEquals(m.get(1, 0), transposed.get(0, 1));
+        assertEquals(m.get(1, 2), transposed.get(2, 1));
+        assertEquals(m.get(1, 3), transposed.get(3, 1));
+
+        assertEquals(m.get(2, 0), transposed.get(0, 2));
+        assertEquals(m.get(2, 1), transposed.get(1, 2));
+        assertEquals(m.get(2, 3), transposed.get(3, 2));
+
+        assertEquals(m.get(3, 0), transposed.get(0, 3));
+        assertEquals(m.get(3, 1), transposed.get(1, 3));
+        assertEquals(m.get(3, 2), transposed.get(2, 3));
+    }
 }
