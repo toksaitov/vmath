@@ -1,13 +1,28 @@
 package vmath;
 
+/**
+ * Represents a 2-dimensional vector with float components.
+ * Provides basic vector operations such as addition, subtraction,
+ * multiplication, and dot product calculation.
+ */
 public class Vec2 {
     private final float x;
     private final float y;
-
+    
+    /**
+     * Constructs a new vector with both x and y components set to zero.
+     */
     public Vec2() {
         this(0.0f, 0.0f);
     }
 
+    /**
+     * Constructs a new vector with specified x and y components.
+     * 
+     * @param x The x component of the vector.
+     * @param y The y component of the vector.
+     * @throws ArithmeticException If either x or y is NaN.
+     */
     public Vec2(float x, float y) {
         if (Float.isNaN(x) || Float.isNaN(y)) {
             throw new ArithmeticException();
