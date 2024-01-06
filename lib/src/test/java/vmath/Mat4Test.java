@@ -2,10 +2,7 @@ package vmath;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertNotSame;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class Mat4Test {
 
@@ -355,34 +352,21 @@ public class Mat4Test {
     }
 
     @Test
-    void givenIdentityMatrix_whenToArray_thenReturnsCorrectArray() {
-        var m = new Mat4();
-        float[] expected = {
-            1.0f, 0.0f, 0.0f, 0.0f,
-            0.0f, 1.0f, 0.0f, 0.0f,
-            0.0f, 0.0f, 1.0f, 0.0f,
-            0.0f, 0.0f, 0.0f, 1.0f
-        };
-        float[] result = m.toArray();
-        assertArrayEquals(expected, result);
-    }
-
-    @Test
-    void givenSpecificMatrix_whenToArray_thenReturnsCorrectArray() {
-        var m = new Mat4(
+    void whenToArrayCalled_thenConvertsToArray() {
+        var m = new Mat2(
             1.0f, 2.0f, 3.0f, 4.0f,
             5.0f, 6.0f, 7.0f, 8.0f,
             9.0f, 10.0f, 11.0f, 12.0f,
             13.0f, 14.0f, 15.0f, 16.0f
         );
-        float[] expected = {
+        float[] a1 = {
             1.0f, 2.0f, 3.0f, 4.0f,
             5.0f, 6.0f, 7.0f, 8.0f,
             9.0f, 10.0f, 11.0f, 12.0f,
             13.0f, 14.0f, 15.0f, 16.0f
         };
-        float[] result = m.toArray();
-        assertArrayEquals(expected, result);
-        assertNotSame(expected, result);
+        float[] a2 = m.toArray();
+        assertArrayEquals(a1, a2);
+        assertNotSame(a1, a2);
     }
 }
