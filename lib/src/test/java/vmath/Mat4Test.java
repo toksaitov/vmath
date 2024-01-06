@@ -2,8 +2,7 @@ package vmath;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class Mat4Test {
 
@@ -350,5 +349,24 @@ public class Mat4Test {
                                    "(5.0, 6.0, 7.0, 8.0)\n"    +
                                    "(9.0, 10.0, 11.0, 12.0)\n" +
                                    "(13.0, 14.0, 15.0, 16.0)");
+    }
+
+    @Test
+    void whenToArrayCalled_thenConvertsToArray() {
+        var m = new Mat4(
+            1.0f, 2.0f, 3.0f, 4.0f,
+            5.0f, 6.0f, 7.0f, 8.0f,
+            9.0f, 10.0f, 11.0f, 12.0f,
+            13.0f, 14.0f, 15.0f, 16.0f
+        );
+        float[] a1 = {
+            1.0f, 2.0f, 3.0f, 4.0f,
+            5.0f, 6.0f, 7.0f, 8.0f,
+            9.0f, 10.0f, 11.0f, 12.0f,
+            13.0f, 14.0f, 15.0f, 16.0f
+        };
+        float[] a2 = m.toArray();
+        assertArrayEquals(a1, a2);
+        assertNotSame(a1, a2);
     }
 }
