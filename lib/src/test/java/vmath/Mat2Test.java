@@ -133,7 +133,7 @@ public class Mat2Test {
         assertEquals(17.0f, r.x());
         assertEquals(39.0f, r.y());
     }
-  
+
     @Test
     void whenToArrayCalled_thenConvertsToArray() {
         var m = new Mat2(
@@ -174,5 +174,78 @@ public class Mat2Test {
         );
         assertEquals(m.toString(), "(2.0, 3.0)\n" +
                                    "(5.0, 1.0)");
+    }
+
+    @Test
+    void givenIdentityMatrix_whenMultipliedWithAnyMatrix_thenResultIsTheSame() {
+        var i = new Mat2(); 
+        var m = new Mat2(
+            1.0f, 2.0f,
+            3.0f, 4.0f
+        );
+        var dot = i.mul(m);
+
+        var expected = new Mat2(
+            1.0f, 2.0f,
+            3.0f, 4.0f
+        );
+
+        assertEquals(expected.get(0, 0), dot.get(0, 0));
+        assertEquals(expected.get(0, 1), dot.get(0, 1));
+        assertEquals(expected.get(1, 0), dot.get(1, 0));
+        assertEquals(expected.get(1, 1), dot.get(1, 1));
+    }
+
+    @Test
+    void givenTwoSpecificMatrices_whenMultiplied_thenResultIsAsExpected() {
+        var m1 = new Mat2(
+            1.0f, 2.0f,
+            3.0f, 4.0f
+        );
+
+        var m2 = new Mat2(
+            5.0f, 6.0f,
+            7.0f, 8.0f
+        );
+
+        var expected = new Mat2(
+            19.0f, 22.0f,
+            43.0f, 50.0f
+        );
+
+        var result = m1.mul(m2);
+
+        assertEquals(expected.get(0, 0), result.get(0, 0));
+        assertEquals(expected.get(0, 1), result.get(0, 1));
+        assertEquals(expected.get(1, 0), result.get(1, 0));
+        assertEquals(expected.get(1, 1), result.get(1, 1));
+    }
+
+    @Test
+    void givenMatricesFromFloatArray_whenMultiplied_thenResultIsAsExpected() {
+        float[] a1 = {
+            1.0f, 2.0f,
+            3.0f, 4.0f
+        };
+
+        float[] a2 = {
+            5.0f, 6.0f,
+            7.0f, 8.0f
+        };
+
+        var m1 = new Mat2(a1);
+        var m2 = new Mat2(a2);
+
+        var expected = new Mat2(
+            19.0f, 22.0f,
+            43.0f, 50.0f
+        );
+
+        var result = m1.mul(m2);
+
+        assertEquals(expected.get(0, 0), result.get(0, 0));
+        assertEquals(expected.get(0, 1), result.get(0, 1));
+        assertEquals(expected.get(1, 0), result.get(1, 0));
+        assertEquals(expected.get(1, 1), result.get(1, 1));
     }
 }
