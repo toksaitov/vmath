@@ -156,15 +156,15 @@ public class Mat3Test {
 
     @Test
     void whenToStringCalled_thenReturnsStringRepresentation() {
-    var m = new Mat3(
-        1.0f, 2.0f, 3.0f,
-        4.0f, 5.0f, 6.0f,
-        7.0f, 8.0f, 9.0f
-    );
-    String expected = "(1.0, 2.0, 3.0)\n" +
-                      "(4.0, 5.0, 6.0)\n" +
-                      "(7.0, 8.0, 9.0)";
+        var m = new Mat3(
+            1.0f, 2.0f, 3.0f,
+            4.0f, 5.0f, 6.0f,
+            7.0f, 8.0f, 9.0f
+        );
+        String expected = "(1.0, 2.0, 3.0)\n" +
+                          "(4.0, 5.0, 6.0)\n" +
+                          "(7.0, 8.0, 9.0)";
     
-    assertEquals(expected, m.toString());
+        assertEquals(expected, m.toString());
     }
 }
