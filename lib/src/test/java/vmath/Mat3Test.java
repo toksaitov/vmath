@@ -122,6 +122,48 @@ public class Mat3Test {
     }
 
     @Test
+    void givenIdentityMatrix_whenTransposed_thenResultIsCorrect() {
+        var m = new Mat3();
+
+        var transposed = m.transp();
+
+        assertEquals(m.get(0, 0), 1.0f);
+        assertEquals(m.get(0, 1), 0.0f);
+        assertEquals(m.get(0, 2), 0.0f);
+
+        assertEquals(m.get(1, 0), 0.0f);
+        assertEquals(m.get(1, 1), 1.0f);
+        assertEquals(m.get(1, 2), 0.0f);
+
+        assertEquals(m.get(2, 0), 0.0f);
+        assertEquals(m.get(2, 1), 0.0f);
+        assertEquals(m.get(2, 2), 1.0f);
+    }
+
+    @Test
+    void givenMatrixWithValues_whenTransposed_thenResultIsCorrect() {
+        var a = new Mat3 (
+                1.0f, 2.0f, 3.0f,
+                4.0f, 5.0f, 6.0f,
+                7.0f, 8.0f, 9.0f
+        );
+        var m = a.transp();
+
+        assertEquals(m.get(0, 0), a.get(0, 0));
+        assertEquals(m.get(1, 1), a.get(1, 1));
+        assertEquals(m.get(2, 2), a.get(2, 2));
+
+        assertEquals(m.get(1, 0), a.get(0, 1));
+        assertEquals(m.get(2, 0), a.get(0, 2));
+
+        assertEquals(m.get(0, 1), a.get(1, 0));
+        assertEquals(m.get(2, 1), a.get(1, 2));
+
+        assertEquals(m.get(0, 2), a.get(2, 0));
+        assertEquals(m.get(1, 2), a.get(2, 1));
+    }
+
+    @Test
     void givenIdentityMatrix_whenMultipliedWithAnyMatrix_thenResultIsTheSame() {
         var i = new Mat3(); 
         var m = new Mat3(
